@@ -1,1 +1,83 @@
 /* Empty. Add your own CSS if you like */
+.title {
+	color: red;
+}
+
+.button-positive {
+    
+    width: 100%;
+}
+
+.mainLogo {
+	width: 100%;
+	padding-top: 30px;
+}
+
+.logo {
+	width: 122px;
+	padding-left: -8px;
+}
+
+.proceed {
+	bottom: 0;
+}
+
+.center {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.ingre {
+	    height: 300px;
+	}
+
+
+
+.warn {
+	color:red;
+	padding-left: 10px;
+}
+
+.ingredient {
+	height: 300px;
+}
+
+.occa {
+	padding-top: 30px;
+}
+
+.listRecipe {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+
+
+.pCuisine {
+	padding-top: 20px;
+}
+
+.test {
+	height: 40px;
+}
+
+.list {
+	padding-top: -4px;
+}
+
+.searchBtn {
+	padding-left: 220px;
+}
+
+.buttons {
+	padding-bottom: 10px;
+}
+
+.btnFav {
+	
+	padding-left: 200px;
+}
+
+.button-clear {
+	width: 100px;
+}
