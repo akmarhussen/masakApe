@@ -1,101 +1,35 @@
- <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>
-      
-    </title>
-
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-  </head>
-  <body ng-app="starter">
-
-    <ion-pane>
-
+<ion-view>
+  <ion-pane>
     <ion-header-bar align-title="left" class="bar-positive">
-
-
-  <img class="logo" src="img/logo2.png">
-  <div class ="searchBtn">
+      <img class="logo" src="img/logo2.png">
+      <div class ="searchBtn">
   <!-- <button class="button-clear"><i class="icon ion-search"></i></button> -->
-  </div>
-
-  
-
-</ion-header-bar>
-    
-      <ion-content class="scroll">
-
-
-
-
-         <div class="list">
-
-              <a class="item item-icon-left" href="#">
-                  <i class="icon ion-person"></i>Log Out
-              </a>
-
-              <a class="item item-icon-left" href="#">
-                  <i class="icon ion-wrench"></i>Languages
-              </a>
-
-              
-         </div>
-  
-
-
-
-
-     
-
-    
-
-  
-
-
-
-
-
-
-
-
-
-</ion-content>
-
-<ion-footer-bar align-title="left" class="bar-assertive">
-
-<div class="tabs">
-
-          <a class="tab-item active" href="#">
-            <i class="icon ion-home"></i>Home</a>
-      
-          <a class="tab-item" href="#">
-            <i class="icon ion-star"></i>Favorites</a>
-
-          <a class="tab-item" href="#">
-            <i class="icon ion-gear-a"></i>Settings</a>
-
       </div>
-  
-</ion-footer-bar>
-         
-    </ion-pane>
+    </ion-header-bar>
+    
+    <ion-content class="scroll">
+      <div class="list">
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-person"></i>Log Out
+        </a>
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-wrench"></i>Languages
+        </a>
+      </div>
+    </ion-content>
 
-
-  </body>
-</html>
+    <ion-footer-bar align-title="left" class="bar-assertive">
+      <div class="tabs">
+        <a class="tab-item active" href="#/">
+          <i class="icon ion-home"></i>Home
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-star"></i>Favorites
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-gear-a"></i>Settings
+        </a>
+      </div>
+    </ion-footer-bar>     
+  </ion-pane>
+</ion-view>
