@@ -3,22 +3,26 @@
     <ion-header-bar align-title="left" class="bar-positive">
       <img class="logo" src="img/logo2.png">
       <div class ="searchBtn">
-  <!-- <button class="button-clear"><i class="icon ion-search"></i></button> -->
       </div>
     </ion-header-bar>
 
     <ion-content class = "scroll">
       <p class="pCuisine"><strong><center>Please choose the ingredient(s)</center></strong> </p>
-      <div class="card">
-        <div class="ingredient item-text-wrap">*Ingredients</div>
+      <div class="card ingredient-card">
+        <multiple-autocomplete ng-model="ingredient.name"
+          object-property="ingredient"
+          api-url="http://api.thebucketdev.com/masakape/ingredient/getAll.php"
+          suggestions-arr="">
+        </multiple-autocomplete>
       </div>
+      <label>Selected Model Value :<br/></label>{{ingredient.name}}
       
       <div class = "row">
         <div class=" col col-50">
           <a class="button button-full button-positive button icon-left ion-chevron-left button-clear " href="#/cuisine">Back</a>
         </div>
         <div class=" col col-50">
-          <button class="button button-full button-positive button icon-right ion-chevron-right  button-clear ">Proceed</button>
+          <a class="button button-full button-positive button icon-right ion-chevron-right  button-clear " href="#/availableRecipe">Proceed</a>
         </div>
       </div>
     </ion-content>     

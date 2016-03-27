@@ -1,0 +1,24 @@
+<ion-view>
+  <ion-pane>  
+    <ion-header-bar align-title="center" class="bar bar-header bar-royal">
+      <h1 class="title">Masak Ape?</h1>
+    </ion-header-bar>
+
+    <ion-content class="scroll">
+      <p class="pCuisine"><strong><center>Please choose the ingredient(s)</center></strong> </p>
+      <div class="card ingredient-card">
+        <multiple-autocomplete ng-model="ingredient.name"
+          object-property="ingredient"
+          api-url="http://api.thebucketdev.com/masakape/ingredient/getAll.php"
+          suggestions-arr="">
+        </multiple-autocomplete>
+      </div>
+<!--       <label>Selected Model Value :<br/></label>{{ingredient.name}} -->
+    </ion-content>     
+  
+    <ion-footer-bar align-title="left" class="bar-footer">
+      <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" ng-controller="MainCtrl">Back</a>
+      <a class="button icon-right ion-chevron-right button-clear button-royal" href="#/ingredient">Next</a>
+    </ion-footer-bar>
+  </ion-pane>
+</ion-view>

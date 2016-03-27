@@ -1,0 +1,22 @@
+<ion-view>
+  <ion-pane>
+    <ion-header-bar align-title="center" class="bar bar-header bar-royal">
+      <h1 class="title">Masak Ape?</h1>
+    </ion-header-bar>
+    <ion-content class="scroll">
+      <p class="pCuisine"><strong><center>Which cuisine(s) would you like?</center></strong> </p>
+      <div class="content" ng-controller="CuisineController">
+        <div class="col">
+          <ion-list>
+            <ion-checkbox class="checkbox-royal" value="{{ cuisine.cuisine }}" ng-repeat="cuisine in cuisines">{{ cuisine.cuisine }}</ion-checkbox>
+          </ion-list>
+          <p class="warn"> *You are required to select at least one cuisine </p>
+        </div>
+      </div>
+    </ion-content>
+    <ion-footer-bar align-title="left" class="bar-footer">
+      <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" ng-controller="MainCtrl">Back</a>
+      <a class="button icon-right ion-chevron-right button-clear button-royal" href="#/occasion">Next</a>
+    </ion-footer-bar>
+  </ion-pane>
+</ion-view>

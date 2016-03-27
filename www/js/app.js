@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'multipleSelect'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -26,22 +26,37 @@ angular.module('starter', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
     url: '/',
-    templateUrl: 'home.html'
+    templateUrl: 'layouts/home.html'
   });
 
   $stateProvider.state('cuisine', {
     url: '/cuisine',
-    templateUrl: 'cuisine.html'
+    templateUrl: 'layouts/cuisine.html'
+  });
+
+  $stateProvider.state('occasion', {
+    url: '/occasion',
+    templateUrl: 'layouts/occasion.html'
   });
 
   $stateProvider.state('ingredient', {
     url: '/ingredient',
-    templateUrl: 'ingredient.html'
+    templateUrl: 'layouts/ingredient.html'
   });
 
   $stateProvider.state('setting', {
     url: '/setting',
     templateUrl: 'setting.html'
+  });
+
+  $stateProvider.state('availableRecipe', {
+    url: '/availableRecipe',
+    templateUrl: 'availableRecipe.html'
+  });
+
+  $stateProvider.state('ingredient2', {
+    url: '/ingredient2',
+    templateUrl: 'layouts/ingredient.html'
   });
 
   $urlRouterProvider.otherwise('/');

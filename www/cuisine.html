@@ -9,21 +9,21 @@
     
     <ion-content class="scroll">
       <p class="pCuisine"><strong><center>Which cuisine(s) would you like?</center></strong> </p>
-      <div class="content">
-        <div class="row">
-          <div class="col col-50">
+      <div class="content" ng-controller="CuisineController">
+        <div class="row" ng-repeat="cuisine in cuisines">
+          <div class="col col-50 col-offset-25" >
             <ion-list>
-              <ion-checkbox ng-model="filter.malay">Malay</ion-checkbox>
+              <ion-checkbox value="{{ cuisine.cuisine }}">{{ cuisine.cuisine }}</ion-checkbox>
             </ion-list>
           </div>
-          <div class="col col-50">
+<!--           <div class="col col-50">
             <ion-list>
-              <ion-checkbox ng-model="filter.western">Western</ion-checkbox>
+              <ion-checkbox ng-model="filter.western">{{ cuisine.cuisine }}</ion-checkbox>
             </ion-list>
           </div>
-        </div>
+ -->        </div>
 
-        <div class="row">
+<!--         <div class="row">
           <div class="col col-50">
             <ion-list>
               <ion-checkbox ng-model="filter.arabic">Arabic</ion-checkbox>
@@ -47,7 +47,7 @@
               <ion-checkbox ng-model="filter.italian">Italian</ion-checkbox>
             </ion-list>
           </div>
-        </div>
+        </div> -->
 
         <p class="warn"> *You are required to select at least one cuisine </p>
         <p class="occa"><strong><center>What occasion you wish for?</center></strong> </p>
