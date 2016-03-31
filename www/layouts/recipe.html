@@ -1,0 +1,21 @@
+<ion-view>
+  <ion-pane>
+    <ion-header-bar align-title="center" class="bar bar-header bar-royal">
+      <h1 class="title">Masak Ape?</h1>
+    </ion-header-bar>
+    <ion-content class="scroll padding" ng-repeat="recipeDetail in recipeDetail">
+      <center><img ng-src="{{recipeDetail.photo}}" style="width: 100%; height: 200px"></center>
+      <h3>{{recipeDetail.recipe}}</h3>
+      <p>
+          <font size="2" color="gray" ><strong>Instruction: </strong><br><span ng-bind-html='recipeDetail.instruction'></span></font>
+      <br><br>
+          <font size="2" color="gray" ><strong>Rating: </strong>{{recipeDetail.rating}}</font>
+      <br>
+      </p>
+    </ion-content>
+    <ion-footer-bar align-title="left" class="bar-footer">
+      <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" ng-controller="MainCtrl">Back</a>
+<!--       <a class="button icon-right ion-chevron-right button-clear button-royal" href="#/occasion">Next</a> -->
+    </ion-footer-bar>
+  </ion-pane>
+</ion-view>

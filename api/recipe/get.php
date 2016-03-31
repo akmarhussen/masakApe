@@ -1,5 +1,5 @@
 <?php 
-	
+	header('Access-Control-Allow-Origin: *');
 	//Getting the requested id
 	$id = $_GET['recipeId'];
 	
@@ -23,7 +23,7 @@
 	));
 
 	//displaying in json format 
-	echo json_encode(array('result'=>$result));
+	echo json_encode($result);
 	
 	mysqli_close($con);
 ?>

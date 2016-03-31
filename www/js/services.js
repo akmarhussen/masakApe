@@ -85,4 +85,16 @@ angular.module('starter.services', [])
             return $http.get(baseUrl+'delete.php?id='+id);
         }
     };
+})
+
+.factory('recipeServices', function($http) {
+    var baseUrl = 'http://api.thebucketdev.com/masakape/recipe/';
+    return {
+        getBestRecipe: function() {
+            return $http.get(baseUrl+'getBestRecipe.php');
+        },
+        getId: function (recipeId){
+            return $http.get(baseUrl+'get.php?recipeId='+recipeId); 
+        }
+    };
 });

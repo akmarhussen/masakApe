@@ -50,4 +50,21 @@ angular.module('starter.controllers', [])
 		});
 	};
 	$scope.show();
+})
+
+
+.controller('recipeController', function($scope, $stateParams, recipeServices) {
+ 	$scope.show = function(){
+		recipeServices.getBestRecipe().success(function(data){
+			$scope.recipes = data;
+		});
+	};
+	$scope.show();
+
+	$scope.showRecipeId = function() {
+      recipeServices.getId($stateParams.recipeId).success(function(recipe) {
+            $scope.recipeDetail = recipe;
+        });   
+    };
+    $scope.showRecipeId();
 });
