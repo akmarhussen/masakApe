@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view ng-controller="findRecipeController">
   <ion-pane>
     <ion-header-bar align-title="center" class="bar bar-header bar-royal">
       <h1 class="title">Masak Ape?</h1>
@@ -8,23 +8,12 @@
       <div class="content" ng-controller="OccasionController">
         <div class="col">
           <ion-list>
-            <ion-radio class="radio-royal" ng-value="{{ occasion.occasion }}" ng-repeat="occasion in occasions">{{ occasion.occasion }}</ion-radio>
+            <ion-radio name="oc" class="radio-royal" ng-repeat="occasion in occasions" ng-click="toggleOccasion(occasion.occasion)">{{ occasion.occasion }}</ion-radio>
           </ion-list>
         </div>
       </div>
     </ion-content>
     <ion-footer-bar align-title="left" class="bar-footer">
-<!--       <div class="tabs">
-        <a class="tab-item" href="#/">
-          <i class="icon ion-home"></i>Home
-        </a>
-        <a class="tab-item" href="#">
-          <i class="icon ion-star"></i>Favorites
-        </a>
-        <a class="tab-item" href="#/setting">
-          <i class="icon ion-gear-a"></i>Settings
-        </a>
-      </div> -->
       <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" ng-controller="MainCtrl">Back</a>
       <a class="button icon-right ion-chevron-right button-clear button-royal" href="#/ingredient">Next</a>
     </ion-footer-bar>

@@ -7,6 +7,16 @@
       <center><img ng-src="{{recipeDetail.photo}}" style="width: 100%; height: 200px"></center>
       <h3>{{recipeDetail.recipe}}</h3>
       <p>
+        <script>
+          $i = 0;
+        </script>
+          <font size="2" color="gray" >
+            <strong>Ingredient: </strong><br>
+            <span ng-repeat="recipeIngredient in recipeIngredients">
+              <strong>{{recipeIngredient.number}})</strong> {{recipeIngredient.ingredient}}<br>
+            </span>
+          </font>
+          <br>
           <font size="2" color="gray" ><strong>Instruction: </strong><br><span ng-bind-html='recipeDetail.instruction'></span></font>
       <br><br>
           <font size="2" color="gray" ><strong>Rating: </strong>{{recipeDetail.rating}}</font>
