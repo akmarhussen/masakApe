@@ -1,9 +1,18 @@
 <ion-view>
   <ion-pane>
-    <ion-header-bar align-title="center" class="bar bar-header bar-royal">
-      <h1 class="title">Masak Ape?</h1>
+     <ion-header-bar align-title="center" class="bar bar-header bar-assertive"> 
+     <center><img class="headLogo" src="img/logotulisan.png"></center>
+     </div>
+        <!-- <img class="headerlogo" src="img/logotulisan.png"> -->
+     <!--  <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" ng-controller="MainCtrl">Back</a> -->
     </ion-header-bar>
+
     <ion-content class="scroll">
+
+    <div>
+    <br><center><h4> Our top available recipes </h4></center><br>
+    </div>
+
       <ion-list>
         <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in recipes" type="item-text-wrap" href="#/recipe/{{recipe.id}}">
           <img ng-src="{{recipe.photo}}">
@@ -15,9 +24,26 @@
         </ion-item>
       </ion-list>
     </ion-content>
-    <ion-footer-bar align-title="left" class="bar-footer">
-      <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" ng-controller="MainCtrl">Back</a>
-<!--       <a class="button icon-right ion-chevron-right button-clear button-royal" href="#/occasion">Next</a>
- -->    </ion-footer-bar>
+    
+    <ion-footer-bar>
+
+     <div class="tabs tabs-icon-top tabs-assertive" >
+  <a class="tab-item" href="#/menu" style="color:#ffffff;">
+    <i class="icon ion-home" ></i>
+    Home
+  </a>
+  <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
+    <i class="icon ion-thumbsup"></i>
+    Top Recipes
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-heart" style="color:#ffffff;"></i>
+    Favorites
+  </a>
+</div>
+
+</div>
+    </ion-footer-bar>
+
   </ion-pane>
 </ion-view>

@@ -1,21 +1,41 @@
 <ion-view ng-controller="findRecipeController">
   <ion-pane>
-    <ion-header-bar align-title="center" class="bar bar-header bar-royal">
-      <h1 class="title">Masak Ape?</h1>
+     <ion-header-bar align-title="center" class="bar bar-header bar-assertive"> 
+        <a class="button icon-left ion-arrow-left-c button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
+        <center><img class="headLogo" src="img/logotulisan.png"></center>
+    
     </ion-header-bar>
-    <ion-content class="scroll">
-      <p class="pCuisine"><strong><center>What occasion you wish for?</center></strong> </p>
+
+    <ion-content class="home">
+      <br><br><h4 class="pCuisine"><strong><center>What occasion you wish for?</center></strong> </h4>
+
       <div class="content" ng-controller="OccasionController">
         <div class="col">
           <ion-list>
-            <ion-radio name="oc" class="radio-royal" ng-repeat="occasion in occasions" ng-click="toggleOccasion(occasion.occasion)">{{ occasion.occasion }}</ion-radio>
+            <ion-radio name="oc" class="radio-assertive" ng-repeat="occasion in occasions" ng-click="toggleOccasion(occasion.occasion)">{{ occasion.occasion }}</ion-radio>
           </ion-list>
+
+        <div style="padding-left: 300px">
+        <br><center>  <a class="btnNext" href="#/ingredient" >Next </a> </center>
+        </div>
+
         </div>
       </div>
     </ion-content>
-    <ion-footer-bar align-title="left" class="bar-footer">
+<!--     <ion-footer-bar align-title="left" class="bar-footer">
       <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" ng-controller="MainCtrl">Back</a>
-      <a class="button icon-right ion-chevron-right button-clear button-royal" href="#/ingredient">Next</a>
+      <a class="button icon-right ion-chevron-right button-clear button-royal" href="#/ingredient">Next</a> -->
+
+    <ion-footer-bar>
+      <div class="tabs tabs-icon-top tabs-assertive" >
+        <a class="tab-item" href="#/menu" style="color:#ffffff;">
+        <i class="icon ion-home" ></i>Home</a>
+
+        <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
+        <i class="icon ion-thumbsup"></i>Top Recipes</a>
+
+        <a class="tab-item" style="color:#ffffff;"><i class="icon ion-heart"></i>Favorites</a>
+      </div>
     </ion-footer-bar>
   </ion-pane>
 </ion-view>
