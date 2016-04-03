@@ -24,9 +24,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider.state('home', {
+  $stateProvider.state('menu', {
     url: '/',
-    templateUrl: 'layouts/home.html'
+    templateUrl: 'layouts/menu.html'
   });
 
   $stateProvider.state('cuisine', {
@@ -78,11 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/recipe/:recipeId',
     templateUrl: 'layouts/recipe.html',
     controller: 'recipeController'
-  });
-
-  $stateProvider.state('menu', {
-    url: '/menu',
-    templateUrl: 'layouts/menu.html'
   });
 
   $urlRouterProvider.otherwise('/');

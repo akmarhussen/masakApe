@@ -13,9 +13,7 @@
 
 .home {
 	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
-  background-size: cover;
-
-
+  	background-size: cover;
 }
 
 .btnMenu1 {
@@ -23,14 +21,14 @@
 	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
 	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
 	color:#ffffff;
-	background-color:#e42112;
+	background-color:#ef473a;
 	border-radius:20px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:7px;
 	border:none;
 	font-family:'Helvetica Neue',Arial,sans-serif;
 	font-size:20px;
-	font-weight:50;
+	font-weight:500;
 	height:80px;
 	padding-top: 11px;
 	padding-left: 30px;
@@ -38,7 +36,6 @@
 	padding-right: 30px;
 	width: 150px;
 	text-decoration:none;
-	text-shadow:#FE6 9 1px 0
 }
 
 .btnMenu2 {
@@ -46,14 +43,14 @@
 	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
 	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
 	color:#ffffff;
-	background-color:#e42112;
+	background-color:#ef473a;
 	border-radius:20px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:7px;
 	border:none;
 	font-family:'Helvetica Neue',Arial,sans-serif;
 	font-size:20px;
-	font-weight:50;
+	font-weight:500;
 	height:80px;
 	padding-top: 11px;
 	padding-left: 30px;
@@ -61,7 +58,6 @@
 	padding-right: 30px;
 	width: 131px;
 	text-decoration:none;
-	text-shadow:#FE6 9 1px 0
 }
 
 .col
@@ -82,6 +78,11 @@
 {
 	text-decoration:none
 }
+
+.btnNextDiv{
+	padding-bottom: 20px;
+    margin-bottom: 50px;
+}
 /*----------------------------------------------------Footer------------------------------------------------------*/
 div.footer
 {
@@ -92,16 +93,18 @@ div.footer
   margin-right: auto;
 }
 
+.bar-footer{
+	height: 50px;
+    background-color: #ef473a;
+}
+
 /*----------------------------------------------------Header------------------------------------------------------*/
 
 .header {
 	width: 3S0%;
 }
 
-
-
-.headLogo
-{
+.headLogo{
 	width: 117px;
 	height: 40px;
 	padding-left: 3px;
@@ -114,22 +117,22 @@ div.footer
 	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
 	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
 	color:#ffffff;
-	background-color:#e42112;
+	background-color:#ef473a;
 	border-radius:20px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:7px;
 	border:none;
 	font-family:'Helvetica Neue',Arial,sans-serif;
 	font-size:20px;
-	font-weight:50;
-	height:80px;
+	font-weight:500;
 	padding-top: 15px;
 	padding-left: 15px;
 	padding-bottom: 15px;
 	padding-right: 15px;
-	width: 150px;
 	text-decoration:none;
-	text-shadow:#FE6 9 1px 0
+	position: absolute;
+	right: 10px;
+}
 
 .proceed {
 	bottom: 0;

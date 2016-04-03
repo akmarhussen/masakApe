@@ -7,18 +7,15 @@
     </ion-header-bar>
 
     <ion-content class="home">
-      <br><br><h4 class="pCuisine"><strong><center>What occasion you wish for?</center></strong> </h4>
-
+      <h4 class="pCuisine"><strong><center>What occasion you wish for?</center></strong> </h4>
       <div class="content" ng-controller="OccasionController">
         <div class="col">
           <ion-list>
             <ion-radio name="oc" class="radio-assertive" ng-repeat="occasion in occasions" ng-click="toggleOccasion(occasion.occasion)">{{ occasion.occasion }}</ion-radio>
           </ion-list>
-
-        <div style="padding-left: 300px">
-        <br><center>  <a class="btnNext" href="#/ingredient" >Next </a> </center>
         </div>
-
+        <div class="btnNextDiv">
+          <a class="btnNext" href="#/ingredient">Next</a>
         </div>
       </div>
     </ion-content>
