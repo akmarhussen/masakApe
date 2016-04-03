@@ -1,24 +1,135 @@
-/* Empty. Add your own CSS if you like */
+ Empty. Add your own CSS if you like */
 /*----------------------------------------------------Main------------------------------------------------------*/
-.button {
+/*.button {
 	min-height: 0 !important;
-}
+}*/
 
 /*----------------------------------------------------Home Page------------------------------------------------------*/
-.mainLogo {
-	width: 70%;
-	padding-top: 50px;
-}
-.home {
-	background: url('../img/background.jpg') no-repeat center;
-	background-size: cover;
+
+.logo{
+	width: 50px;
+	padding-top: 20px;
 }
 
-/*----------------------------------------------------Cusine Page------------------------------------------------------*/
-.logo {
-	width: 122px;
-	padding-left: -8px;
+.home {
+	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
+  background-size: cover;
+
+
 }
+
+.btnMenu1 {
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	color:#ffffff;
+	background-color:#e42112;
+	border-radius:20px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:7px;
+	border:none;
+	font-family:'Helvetica Neue',Arial,sans-serif;
+	font-size:20px;
+	font-weight:50;
+	height:80px;
+	padding-top: 11px;
+	padding-left: 30px;
+	padding-bottom: 11px;
+	padding-right: 30px;
+	width: 150px;
+	text-decoration:none;
+	text-shadow:#FE6 9 1px 0
+}
+
+.btnMenu2 {
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	color:#ffffff;
+	background-color:#e42112;
+	border-radius:20px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:7px;
+	border:none;
+	font-family:'Helvetica Neue',Arial,sans-serif;
+	font-size:20px;
+	font-weight:50;
+	height:80px;
+	padding-top: 11px;
+	padding-left: 30px;
+	padding-bottom: 11px;
+	padding-right: 30px;
+	width: 131px;
+	text-decoration:none;
+	text-shadow:#FE6 9 1px 0
+}
+
+.col
+{
+	padding-left: 22px;
+	padding-right: 22px;
+	padding-top: 14px;
+	padding-bottom: 22px;
+}
+
+.footer
+{
+	padding-top: 7px;
+	text-decoration:none
+}
+
+.lang 
+{
+	text-decoration:none
+}
+/*----------------------------------------------------Footer------------------------------------------------------*/
+div.footer
+{
+  width: 180px;
+  display: block;
+  padding-left: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*----------------------------------------------------Header------------------------------------------------------*/
+
+.header {
+	width: 3S0%;
+}
+
+
+
+.headLogo
+{
+	width: 117px;
+	height: 40px;
+	padding-left: 3px;
+}
+/*----------------------------------------------------Cusine Page------------------------------------------------------*/
+
+
+.btnNext {
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	color:#ffffff;
+	background-color:#e42112;
+	border-radius:20px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:7px;
+	border:none;
+	font-family:'Helvetica Neue',Arial,sans-serif;
+	font-size:20px;
+	font-weight:50;
+	height:80px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	padding-right: 15px;
+	width: 150px;
+	text-decoration:none;
+	text-shadow:#FE6 9 1px 0
 
 .proceed {
 	bottom: 0;
@@ -83,4 +194,4 @@
 
 /*.button-clear {
 	width: 100%;
-}*/
+}
