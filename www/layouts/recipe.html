@@ -1,7 +1,7 @@
 <ion-view>
   <ion-pane>
     <ion-header-bar align-title="center" class="bar bar-header bar-assertive"> 
-        <a class="button icon-left ion-arrow-left-c button-clear button-royal footer-btn" href="#/bestRecipe" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
+        <a class="button icon-left ion-arrow-left-c button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
         <center><img class="headLogo" src="img/logotulisan.png"></center>
     </ion-header-bar>
 
@@ -9,34 +9,40 @@
 
     <br>
       <center><img ng-src="{{recipeDetail.photo}}" style="width: 100%; height: 200px"></center>
-      
-      <br><center><h3>{{recipeDetail.recipe}}</h3></center>
-      <p >
-          <font size="3" color="gray"><br><strong>INSTRUCTION </strong><br><br><span ng-bind-html='recipeDetail.instruction'></span></font>
+      <h3>{{recipeDetail.recipe}}</h3>
+      <p>
+        <script>
+          $i = 0;
+        </script>
+          <font size="2" color="gray" >
+            <strong>INGREDIENT: </strong><br>
+            <span ng-repeat="recipeIngredient in recipeIngredients">
+              <strong>{{recipeIngredient.number}})</strong> {{recipeIngredient.ingredient}}<br>
+            </span>
+          </font>
+          <br>
+          <font size="2" color="gray" ><strong>INSTRUCTION: </strong><br><span ng-bind-html='recipeDetail.instruction'></span></font>
       <br><br>
-          <font size="2" color="gray" ><strong>Rating: </strong>{{recipeDetail.rating}}</font>
+          <font size="2" color="gray" ><strong>RATING: </strong>{{recipeDetail.rating}}</font>
       <br>
       </p>
     </ion-content>
 
     <ion-footer-bar>
      <div class="tabs tabs-icon-top tabs-assertive" >
-  <a class="tab-item" href="#/menu" style="color:#ffffff;">
-    <i class="icon ion-home" ></i>
-    Home
-  </a>
-  <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
-    <i class="icon ion-thumbsup"></i>
-    Top Recipes
-  </a>
-  <a class="tab-item">
-    <i class="icon ion-heart" style="color:#ffffff;"></i>
-    Favorites
-  </a>
-</div>
-
-</div>
+        <a class="tab-item" href="#/menu" style="color:#ffffff;">
+          <i class="icon ion-home" ></i>
+          Home
+        </a>
+        <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
+          <i class="icon ion-thumbsup"></i>
+          Top Recipes
+        </a>
+        <a class="tab-item">
+          <i class="icon ion-heart" style="color:#ffffff;"></i>
+          Favorites
+        </a>
+      </div>
     </ion-footer-bar>
-
   </ion-pane>
 </ion-view>

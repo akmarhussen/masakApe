@@ -95,6 +95,37 @@ angular.module('starter.services', [])
         },
         getId: function (recipeId){
             return $http.get(baseUrl+'get.php?recipeId='+recipeId); 
+        },
+        getRecipeIngredient: function (recipeId){
+            return $http.get(baseUrl+'getRecipeIngredient.php?recipeId='+recipeId); 
         }
     };
+})
+
+.factory('findRecipeServices', function($http) {
+    var baseUrl = 'http://api.thebucketdev.com/masakape/recipe/';
+    return {
+        findRecipe: function (userCuisine){
+            return $http.post(baseUrl+'findRecipe.php',userCuisine,{
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
+                }
+            });
+        }
+    };
+})
+
+.factory('InputCuisine', function() {
+    inputCuisine = [];
+    return inputCuisine;
+})
+
+.factory('InputOccasion', function() {
+    inputOccasion = [];
+    return inputOccasion;
+})
+
+.factory('InputIngredient', function() {
+    inputIngredient = [];
+    return inputIngredient;
 });

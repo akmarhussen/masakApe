@@ -67,4 +67,48 @@ angular.module('starter.controllers', [])
         });   
     };
     $scope.showRecipeId();
+
+    $scope.showRecipeIngredient = function() {
+      recipeServices.getRecipeIngredient($stateParams.recipeId).success(function(recipe) {
+            $scope.recipeIngredients = recipe;
+        });   
+    };
+    $scope.showRecipeIngredient();
+})
+
+.controller('findRecipeController', function($scope, findRecipeServices, InputCuisine, InputOccasion, InputIngredient) {
+ 	// $scope.userCuisine=[];
+ 	$scope.userCuisine = InputCuisine;
+ 	$scope.userOccasion = InputOccasion;
+ 	$scope.ingredient = InputIngredient;
+
+	$scope.toggleSelection = function toggleSelection(cuisine) {
+	    $idx = $scope.userCuisine.indexOf(cuisine);
+
+	    // is currently selected
+	    if ($idx > -1) {
+	      $scope.userCuisine.splice($idx, 1);
+	    }
+
+	    // is newly selected
+	    else {
+	      $scope.userCuisine.push(cuisine);
+	    }
+	    console.log($scope.userCuisine);
+	};
+	$scope.toggleOccasion = function toggleOccasion(occasion) {
+	    $scope.userOccasion.pop();
+	    $scope.userOccasion.push(occasion);
+	    console.log($scope.userOccasion);
+	};
+    $scope.findRecipe = function findRecipe(){
+        findRecipeServices.findRecipe({
+            cuisine: $scope.userCuisine,
+            occasion: $scope.userOccasion,
+            ingredient: $scope.ingredient.name
+        }).success(function(data){
+            $scope.foundRecipe = data;
+        });
+    };
+    $scope.findRecipe();
 });

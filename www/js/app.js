@@ -24,24 +24,33 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider.state('home', {
+  $stateProvider.state('menu', {
     url: '/',
-    templateUrl: 'layouts/home.html'
+    templateUrl: 'layouts/menu.html'
   });
 
   $stateProvider.state('cuisine', {
     url: '/cuisine',
-    templateUrl: 'layouts/cuisine.html'
+    templateUrl: 'layouts/cuisine.html',
+    controller: 'findRecipeController'
   });
 
   $stateProvider.state('occasion', {
     url: '/occasion',
-    templateUrl: 'layouts/occasion.html'
+    templateUrl: 'layouts/occasion.html',
+    controller: 'findRecipeController'
   });
 
   $stateProvider.state('ingredient', {
     url: '/ingredient',
-    templateUrl: 'layouts/ingredient.html'
+    templateUrl: 'layouts/ingredient.html',
+    controller: 'findRecipeController'
+  });
+
+  $stateProvider.state('foundRecipe', {
+    url: '/foundRecipe',
+    templateUrl: 'layouts/foundRecipe.html',
+    controller: 'findRecipeController'
   });
 
   $stateProvider.state('setting', {
@@ -69,11 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/recipe/:recipeId',
     templateUrl: 'layouts/recipe.html',
     controller: 'recipeController'
-  });
-
-  $stateProvider.state('menu', {
-    url: '/menu',
-    templateUrl: 'layouts/menu.html'
   });
 
   $urlRouterProvider.otherwise('/');

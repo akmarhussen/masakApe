@@ -1,19 +1,14 @@
 <ion-view>
   <ion-pane>
-     <ion-header-bar align-title="center" class="bar bar-header bar-assertive"> 
-     <a class="button icon-left ion-arrow-left-c button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
-     <center><img class="headLogo" src="img/logotulisan.png"></center>
-     </div>
+    <ion-header-bar align-title="center" class="bar bar-header bar-assertive">
+      <a class="button icon-left ion-arrow-left-c button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
+      <center><img class="headLogo" src="img/logotulisan.png"></center>
         <!-- <img class="headerlogo" src="img/logotulisan.png"> -->
      <!--  <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" ng-controller="MainCtrl">Back</a> -->
     </ion-header-bar>
-
     <ion-content class="scroll">
-      <div>
-        <br><center><h4> Our top available recipes </h4></center><br>
-      </div>
       <ion-list>
-        <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in recipes" type="item-text-wrap" href="#/recipe/{{recipe.id}}">
+        <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in foundRecipe" type="item-text-wrap" href="#/recipe/{{recipe.id}}">
           <img ng-src="{{recipe.photo}}">
           <i class="icon ion-ios-arrow-right"></i>
           <h2>{{recipe.recipe}}
@@ -23,7 +18,6 @@
         </ion-item>
       </ion-list>
     </ion-content>
-    
     <ion-footer-bar>
      <div class="tabs tabs-icon-top tabs-assertive" >
         <a class="tab-item" href="#/menu" style="color:#ffffff;">
