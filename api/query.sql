@@ -1,3 +1,4 @@
+-- exact ingredient
 SELECT r.*, c.cuisine, o.occasion
 FROM   recipes r
 INNER JOIN (
@@ -28,3 +29,4 @@ INNER JOIN occasions o
 ON o.id = ro.occasion_id
 WHERE c.cuisine IN ("Arabic", "Western")
 AND o.occasion = "Breakfast"
+

@@ -90,8 +90,12 @@ angular.module('starter.services', [])
 .factory('recipeServices', function($http) {
     var baseUrl = 'http://api.thebucketdev.com/masakape/recipe/';
     return {
-        getBestRecipe: function() {
-            return $http.get(baseUrl+'getBestRecipe.php');
+        getBestRecipe: function(bestRecipe) {
+            return $http.post(baseUrl+'getBestRecipe.php',bestRecipe,{
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
+                }
+            });
         },
         getId: function (recipeId){
             return $http.get(baseUrl+'get.php?recipeId='+recipeId); 
@@ -128,4 +132,9 @@ angular.module('starter.services', [])
 .factory('InputIngredient', function() {
     inputIngredient = [];
     return inputIngredient;
+})
+
+.factory('InputTopRecipe', function() {
+    InputTopRecipe = "10";
+    return InputTopRecipe;
 });

@@ -7,7 +7,7 @@
 }
 .ion-close-circled:before {
     content: "\f128";
-    color: #e42112;
+    color: #ef473a;
     font-size: 16px;
 }
 .ion-close-round:before {
@@ -64,7 +64,7 @@
     padding: 5px 0 5px 10px;
 }
 .autocomplete-list ul li.autocomplete-active {
-    background-color: #e42112;
+    background-color: #ef473a;
 }
 .autocomplete-active {
     background-color: #0000cc;
@@ -87,7 +87,7 @@
     margin: 5px 0;
 }
 .form-item-container .list-inline li span {
-    border: 1px solid #e42112;
+    border: 1px solid #ef473a;
     border-radius: 4px;
     padding: 4px;
 }

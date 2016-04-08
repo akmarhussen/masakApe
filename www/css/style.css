@@ -68,12 +68,6 @@
 	padding-bottom: 22px;
 }
 
-.footer
-{
-	padding-top: 7px;
-	text-decoration:none
-}
-
 .lang 
 {
 	text-decoration:none
@@ -86,11 +80,12 @@
 /*----------------------------------------------------Footer------------------------------------------------------*/
 div.footer
 {
-  width: 180px;
+  /*width: 180px;*/
   display: block;
-  padding-left: 5px;
+  margin: auto;
+  /*padding-left: 5px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto;*/
 }
 
 .bar-footer{
@@ -197,4 +192,9 @@ div.footer
 
 /*.button-clear {
 	width: 100%;
+}
+
+/*----------------------------------------------------Top Recipe Page------------------------------------------------------*/
+.advanced {
+	color: blue;
 }

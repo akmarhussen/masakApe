@@ -53,13 +53,30 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('recipeController', function($scope, $stateParams, recipeServices) {
+.controller('recipeController', function($scope, $stateParams, recipeServices, InputTopRecipe) {
+ 	$scope.mySelect = InputTopRecipe;
+ 	
  	$scope.show = function(){
-		recipeServices.getBestRecipe().success(function(data){
-			$scope.recipes = data;
-		});
+		recipeServices.getBestRecipe({
+            topRecipe: $scope.mySelect
+        }).success(function(data){
+            $scope.recipes = data;
+        });
 	};
 	$scope.show();
+
+	$scope.showSelectValue = function(mySelect) {
+	    $scope.mySelect = mySelect;
+	    $scope.getBestRecipe();
+	};
+
+	$scope.getBestRecipe = function getBestRecipe(){
+        recipeServices.getBestRecipe({
+            topRecipe: $scope.mySelect
+        }).success(function(data){
+            $scope.recipes = data;
+        });
+    };
 
 	$scope.showRecipeId = function() {
       recipeServices.getId($stateParams.recipeId).success(function(recipe) {

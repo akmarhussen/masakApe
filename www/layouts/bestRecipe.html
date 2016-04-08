@@ -10,7 +10,19 @@
 
     <ion-content class="scroll">
       <div>
-        <br><center><h4> Our top available recipes </h4></center><br>
+        <div class="list">
+          <label class="item item-input">
+            <span>Top:</span>&nbsp;
+            <select ng-model="mySelect" ng-change="showSelectValue(mySelect)" class="item item-input item-select">
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+            </select>&nbsp;
+            <a href="" class="advanced">Advanced</a>&nbsp;
+            <a class="button button-assertive" ng-click="getBestRecipe()"><i class="icon ion-search"></i></a>
+          </label>
+        </div>
       </div>
       <ion-list>
         <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in recipes" type="item-text-wrap" href="#/recipe/{{recipe.id}}">
@@ -24,21 +36,14 @@
       </ion-list>
     </ion-content>
     
-    <ion-footer-bar>
-     <div class="tabs tabs-icon-top tabs-assertive" >
-        <a class="tab-item" href="#/menu" style="color:#ffffff;">
-          <i class="icon ion-home" ></i>
-          Home
-        </a>
-        <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
-          <i class="icon ion-thumbsup"></i>
-          Top Recipes
-        </a>
-        <a class="tab-item">
-          <i class="icon ion-heart" style="color:#ffffff;"></i>
-          Favorites
-        </a>
-      </div>
-    </ion-footer-bar>
+    <div class="tabs tabs-icon-top tabs-assertive" >
+      <a class="tab-item" href="#/menu" style="color:#ffffff;">
+      <i class="icon ion-home" ></i>Home</a>
+
+      <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
+      <i class="icon ion-thumbsup"></i>Top Recipes</a>
+
+      <a class="tab-item" style="color:#ffffff;"><i class="icon ion-heart"></i>Favorites</a>
+    </div>
   </ion-pane>
 </ion-view>

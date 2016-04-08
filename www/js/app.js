@@ -23,10 +23,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   });
 })
 
+.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.scrolling.jsScrolling(false);
+  $ionicConfigProvider.views.maxCache(5);
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('menu', {
     url: '/',
-    templateUrl: 'layouts/menu.html'
+    templateUrl: 'layouts/menu.html',
+    controller: 'MainCtrl'
   });
 
   $stateProvider.state('cuisine', {
@@ -56,16 +62,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   $stateProvider.state('setting', {
     url: '/setting',
     templateUrl: 'setting.html'
-  });
-
-  $stateProvider.state('availableRecipe', {
-    url: '/availableRecipe',
-    templateUrl: 'availableRecipe.html'
-  });
-
-  $stateProvider.state('ingredient2', {
-    url: '/ingredient2',
-    templateUrl: 'layouts/ingredient.html'
   });
 
   $stateProvider.state('bestRecipe', {
