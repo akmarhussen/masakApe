@@ -11,10 +11,10 @@
 	padding-top: 20px;
 }
 
-.home {
+/*.home {
 	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
   	background-size: cover;
-}
+}*/
 
 .btnMenu1 {
 	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
@@ -107,6 +107,12 @@ div.footer
 .headLogo{
 	width: 117px;
 	height: 40px;
+	padding-left: 12px;
+}
+
+.header{
+	width: 117px;
+	height: 40px;
 	padding-left: 3px;
 }
 /*----------------------------------------------------Cusine Page------------------------------------------------------*/
@@ -138,10 +144,14 @@ div.footer
 	bottom: 0;
 }
 
-/*.center {
-	padding-left: 30px;
-	padding-right: 30px;
-}*/
+/*----------------------------------------------------Recipe Page------------------------------------------------------*/
+.recipeName
+{
+	font-family:century Gothic;
+	font-weight: bold; 
+	color: #ef473a;
+	text-decoration: underline;
+}
 
 .ingre {
 	    height: 300px;
