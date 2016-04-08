@@ -1,12 +1,13 @@
 <ion-view>
   <ion-pane>
     <ion-header-bar align-title="center" class="bar bar-header bar-assertive"> 
-        <a class="button icon-left ion-arrow-left-c button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
+        <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
         <center><img class="headLogo" src="img/logotulisan.png"></center>
     </ion-header-bar>
 
     <ion-content class="home">
-      <h4 class="pCuisine"><strong><center>Which cuisine(s) would you like?</center></strong></h4>
+    <center><img class="header" src="img/header.png"></center>
+      <!-- <h4 class="pCuisine"><strong><center>Which cuisine(s) would you like?</center></strong></h4> -->
       <div class="content" ng-controller="CuisineController">
         <div class="col">
           <ion-list>
@@ -14,6 +15,7 @@
           </ion-list>
 
           <p class="warn"> *You are required to select at least one cuisine </p>
+
           <br><center> <a class="btnNext" href="#/occasion">Next</a></center>
         </div>
       </div>
