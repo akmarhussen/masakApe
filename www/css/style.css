@@ -8,13 +8,13 @@
 
 .logo{
 	width: 50px;
-	padding-top: 20px;
+	/*padding-top: 20px;*/
 }
 
-/*.home {
+.home {
 	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
   	background-size: cover;
-}*/
+}
 
 .btnMenu1 {
 	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
@@ -106,9 +106,7 @@ div.footer
 }
 
 .header{
-	width: 117px;
-	height: 40px;
-	padding-left: 3px;
+	width: 100%;
 }
 /*----------------------------------------------------Cusine Page------------------------------------------------------*/
 
