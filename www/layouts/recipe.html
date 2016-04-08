@@ -5,15 +5,12 @@
         <center><img class="headLogo" src="img/logotulisan.png"></center>
     </ion-header-bar>
 
-    <ion-content class="scroll padding" ng-repeat="recipeDetail in recipeDetail">
+    <ion-content class="scroll padding recipeList" ng-repeat="recipeDetail in recipeDetail">
 
       <center><img ng-src="{{recipeDetail.photo}}" style="width: 100%; height: 200px"></center>
       
       <center><h3 class="recipeName" >{{recipeDetail.recipe}}</h3></center>
       <p>
-        <script>
-          $i = 0;
-        </script>
           <br>
           <font size="3" color="black" >
             <strong>INGREDIENT: </strong><br>
