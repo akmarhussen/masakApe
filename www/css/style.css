@@ -11,10 +11,15 @@
 	padding-top: 20px;
 }
 
-/*.home {
+
+.hometext {
+	width: 269px;
+	height: 33px;
+}
+.home {
 	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
   	background-size: cover;
-}*/
+}
 
 .btnMenu1 {
 	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
@@ -95,7 +100,9 @@ div.footer
 /*----------------------------------------------------Header------------------------------------------------------*/
 
 .header {
-	width: 3S0%;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .headLogo{
@@ -103,14 +110,16 @@ div.footer
 	height: 40px;
 	padding-left: 12px;
 }
-
-.header{
-	width: 117px;
-	height: 40px;
-	padding-left: 3px;
-}
 /*----------------------------------------------------Cusine Page------------------------------------------------------*/
 
+.has-header{
+	top:145px;
+}
+
+.bar{
+	padding: 0;
+	background-size: 0;
+}
 
 .btnNext {
 	/*-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
