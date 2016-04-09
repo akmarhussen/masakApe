@@ -11,6 +11,10 @@
 	/*padding-top: 20px;*/
 }
 
+.hometext {
+	width: 269px;
+	height: 33px;
+}
 .home {
 	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
   	background-size: cover;
@@ -96,7 +100,9 @@ div.footer
 /*----------------------------------------------------Header------------------------------------------------------*/
 
 .header {
-	width: 3S0%;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .headLogo{
@@ -110,6 +116,14 @@ div.footer
 }
 /*----------------------------------------------------Cusine Page------------------------------------------------------*/
 
+.has-header{
+	top:116px;
+}
+
+.bar{
+	padding: 0;
+	background-size: 0;
+}
 
 .btnNext {
 	/*-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;

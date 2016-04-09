@@ -1,11 +1,9 @@
 <ion-view>
   <ion-pane>
-    <ion-header-bar align-title="center" class="bar bar-header bar-assertive">
-      <a class="button icon-left ion-arrow-left-c button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
-      <center><img class="headLogo" src="img/logotulisan.png"></center>
-        <!-- <img class="headerlogo" src="img/logotulisan.png"> -->
-     <!--  <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" ng-controller="MainCtrl">Back</a> -->
+    <ion-header-bar align-title="center" class="bar bar-header">
+    <center><img class="header" src="img/foundRecipeHeader.png"></center>
     </ion-header-bar>
+
     <ion-content class="scroll">
       <ion-list>
         <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in foundRecipe" type="item-text-wrap" href="#/recipe/{{recipe.id}}">

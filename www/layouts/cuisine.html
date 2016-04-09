@@ -1,13 +1,10 @@
 <ion-view>
   <ion-pane>
-    <ion-header-bar align-title="center" class="bar bar-header bar-assertive"> 
-        <a class="button icon-left ion-arrow-left-c button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
-        <center><img class="headLogo" src="img/logotulisan.png"></center>
+    <ion-header-bar align-title="center" class="bar bar-header "> 
+        <center><img class="header" src="img/cuisineHeader.png"></center>
     </ion-header-bar>
 
-    <ion-content >
-    <center><img class="header" src="img/cuisineHeader.png"></center>
-      <!-- <h4 class="pCuisine"><strong><center>Which cuisine(s) would you like?</center></strong></h4> -->
+    <ion-content class="scroll">
       <div class="content" ng-controller="CuisineController">
         <div class="col">
           <ion-list>
