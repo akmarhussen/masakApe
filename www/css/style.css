@@ -8,13 +8,13 @@
 
 .logo{
 	width: 50px;
-	/*padding-top: 20px;*/
+	padding-top: 20px;
 }
 
-.home {
+/*.home {
 	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
   	background-size: cover;
-}
+}*/
 
 .btnMenu1 {
 	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
@@ -89,8 +89,7 @@ div.footer
 }
 
 .bar-footer{
-	height: 50px;
-    background-color: #ef473a;
+	padding: 0;
 }
 
 /*----------------------------------------------------Header------------------------------------------------------*/
@@ -106,7 +105,9 @@ div.footer
 }
 
 .header{
-	width: 100%;
+	width: 117px;
+	height: 40px;
+	padding-left: 3px;
 }
 /*----------------------------------------------------Cusine Page------------------------------------------------------*/
 
@@ -209,4 +210,23 @@ div.footer
 /*----------------------------------------------------Top Recipe Page------------------------------------------------------*/
 .advanced {
 	color: blue;
+}
+
+/*----------------------------------------------------Ingredient Page------------------------------------------------------*/
+.ingredientSelect {
+	border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 4px;
+    text-align: right;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.inputIngredient {
+	width: 90%;
+	border: none;
+}
+
+.inputIngredientIcon {
+	width: 10%;
 }

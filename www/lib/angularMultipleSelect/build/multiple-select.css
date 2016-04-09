@@ -51,8 +51,13 @@
     border-radius: 4px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     position: absolute;
-    width: 100%;
+    width: 98%;
     z-index: 100;
+    height: 50%;
+    overflow: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -20px;
 }
 .autocomplete-list ul {
     margin: 0;
@@ -76,7 +81,7 @@
     background-image: none;
 /*    border: 1px solid #ccc;*/
     border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+/*    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;*/
     color: #555555;
     padding: 5px 10px;
 }
@@ -87,7 +92,7 @@
     margin: 5px 0;
 }
 .form-item-container .list-inline li span {
-    border: 1px solid #ef473a;
+    border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     padding: 4px;
 }

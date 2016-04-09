@@ -1,0 +1,36 @@
+<div class="ingredientSelect"><input class="inputIngredient" name="{{name}}" ng-model="inputValue" placeholder="Enter some ingredient.." ng-keydown="keyParser($event)"
+                       err-msg-required="{{errMsgRequired}}"
+                       ng-focus="onFocus()" ng-blur="onBlur()" ng-required="!modelArr.length && isRequired"
+                        ng-change="onChange()"><i class="ion ion-search inputIngredientIcon"></i></div>
+<div class="autocomplete-list" ng-show="isFocused || isHover" ng-mouseenter="onMouseEnter()" ng-mouseleave="onMouseLeave()">
+    <ul ng-if="objectProperty == undefined || objectProperty == ''">
+        <li ng-class="{'autocomplete-active' : selectedItemIndex == $index}"
+            ng-repeat="suggestion in suggestionsArr | filter : inputValue | filter : alreadyAddedValues"
+            ng-click="onSuggestedItemsClick(suggestion)" ng-mouseenter="mouseEnterOnItem($index)">
+            {{suggestion}}
+        </li>
+    </ul>
+    <ul ng-if="objectProperty != undefined && objectProperty != ''">
+        <li ng-class="{'autocomplete-active' : selectedItemIndex == $index}"
+            ng-repeat="suggestion in suggestionsArr | filter : inputValue | filter : alreadyAddedValues"
+            ng-click="onSuggestedItemsClick(suggestion)" ng-mouseenter="mouseEnterOnItem($index)">
+            {{suggestion[objectProperty]}}
+        </li>
+    </ul>
+</div>
+<div class="card ingredient-card">
+    <div class="ng-ms form-item-container">
+        <ul class="list-inline">
+            <li ng-repeat="item in modelArr">
+        		<span ng-if="objectProperty == undefined || objectProperty == ''">
+        			{{item}} <span class="remove" ng-click="removeAddedValues(item)">
+                    <i class="ion ion-close-circled"></i></span>&nbsp;
+        		</span>
+                <span ng-if="objectProperty != undefined && objectProperty != ''">
+        			{{item[objectProperty]}} <span class="remove" ng-click="removeAddedValues(item)">
+                    <i class="ion ion-close-circled"></i></span>&nbsp;
+        		</span>
+            </li>
+        </ul>
+    </div>
+</div>

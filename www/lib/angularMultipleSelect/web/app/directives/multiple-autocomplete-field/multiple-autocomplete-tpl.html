@@ -3,15 +3,15 @@
         <li ng-repeat="item in modelArr">
 			<span ng-if="objectProperty == undefined || objectProperty == ''">
 				{{item}} <span class="remove" ng-click="removeAddedValues(item)">
-                <i class="glyphicon glyphicon-remove"></i></span>&nbsp;
+                <i class="ion ion-close-circled"></i></span>&nbsp;
 			</span>
             <span ng-if="objectProperty != undefined && objectProperty != ''">
 				{{item[objectProperty]}} <span class="remove" ng-click="removeAddedValues(item)">
-                <i class="glyphicon glyphicon-remove"></i></span>&nbsp;
+                <i class="ion ion-close-circled"></i></span>&nbsp;
 			</span>
         </li>
         <li>
-            <input name="{{name}}" ng-model="inputValue" placeholder="" ng-keydown="keyParser($event)"
+            <input name="{{name}}" ng-model="inputValue" placeholder="Enter some ingredient.." ng-keydown="keyParser($event)"
                    err-msg-required="{{errMsgRequired}}"
                    ng-focus="onFocus()" ng-blur="onBlur()" ng-required="!modelArr.length && isRequired"
                     ng-change="onChange()">
