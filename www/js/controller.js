@@ -1,18 +1,22 @@
 angular.module('starter.controllers', [])
 
-.controller('CuisineController', function($scope, cuisineServices){
+.controller('CuisineController', function($scope, cuisineServices, $ionicLoading){
 	$scope.show = function(){
+		$ionicLoading.show();
 		cuisineServices.getAll().success(function(data){
 			$scope.cuisines = data;
+			$ionicLoading.hide();
 		});
 	};
 	$scope.show();
 })
 
-.controller('OccasionController', function($scope, occasionServices){
+.controller('OccasionController', function($scope, occasionServices, $ionicLoading){
 	$scope.show = function(){
+		$ionicLoading.show();
 		occasionServices.getAll().success(function(data){
 			$scope.occasions = data;
+			$ionicLoading.hide();
 		});
 	};
 	$scope.show();
@@ -53,14 +57,16 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('recipeController', function($scope, $stateParams, recipeServices, InputTopRecipe) {
+.controller('recipeController', function($scope, $stateParams, recipeServices, InputTopRecipe, $ionicLoading, $ionicModal) {
  	$scope.mySelect = InputTopRecipe;
  	
  	$scope.show = function(){
+ 		$ionicLoading.show();
 		recipeServices.getBestRecipe({
             topRecipe: $scope.mySelect
         }).success(function(data){
             $scope.recipes = data;
+            $ionicLoading.hide();
         });
 	};
 	$scope.show();
@@ -71,11 +77,14 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.getBestRecipe = function getBestRecipe(){
+		$ionicLoading.show();
         recipeServices.getBestRecipe({
             topRecipe: $scope.mySelect
         }).success(function(data){
             $scope.recipes = data;
+            $ionicLoading.hide();
         });
+        console.log($scope.mySelect);
     };
 
 	$scope.showRecipeId = function() {
@@ -91,13 +100,39 @@ angular.module('starter.controllers', [])
         });   
     };
     $scope.showRecipeIngredient();
+
+    $ionicModal.fromTemplateUrl('my-modal.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function(modal) {
+		$scope.modal = modal;
+	});
+	$scope.openModal = function() {
+		$scope.modal.show();
+	};
+	$scope.closeModal = function() {
+		$scope.modal.hide();
+	};
+	//Cleanup the modal when we're done with it!
+	$scope.$on('$destroy', function() {
+		$scope.modal.remove();
+	});
+	// Execute action on hide modal
+	$scope.$on('modal.hidden', function() {
+		// Execute action
+	});
+	// Execute action on remove modal
+	$scope.$on('modal.removed', function() {
+		// Execute action
+	});
 })
 
-.controller('findRecipeController', function($scope, findRecipeServices, InputCuisine, InputOccasion, InputIngredient) {
+.controller('findRecipeController', function($scope, findRecipeServices, InputCuisine, InputOccasion, InputIngredient, InputSearch, $ionicLoading) {
  	// $scope.userCuisine=[];
  	$scope.userCuisine = InputCuisine;
  	$scope.userOccasion = InputOccasion;
  	$scope.ingredient = InputIngredient;
+ 	$scope.userSearch = InputSearch;
 
 	$scope.toggleSelection = function toggleSelection(cuisine) {
 	    $idx = $scope.userCuisine.indexOf(cuisine);
@@ -118,14 +153,17 @@ angular.module('starter.controllers', [])
 	    $scope.userOccasion.push(occasion);
 	    console.log($scope.userOccasion);
 	};
-    $scope.findRecipe = function findRecipe(){
+    $scope.findRecipe = function findRecipe(userSearch){
+    	$ionicLoading.show();
         findRecipeServices.findRecipe({
             cuisine: $scope.userCuisine,
             occasion: $scope.userOccasion,
-            ingredient: $scope.ingredient.name
+            ingredient: $scope.ingredient.name,
+            search: userSearch
         }).success(function(data){
             $scope.foundRecipe = data;
+            $ionicLoading.hide();
         });
     };
-    $scope.findRecipe();
+    $scope.findRecipe(InputSearch);
 });

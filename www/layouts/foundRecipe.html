@@ -5,6 +5,12 @@
     </ion-header-bar>
     
     <ion-content class="scroll recipeList">
+    <div class="searchIngBtn">
+      <center>
+        <a class="button button-assertive" ng-click="findRecipe('exact')">Exact Ingredient</a>
+        <a class="button button-assertive" ng-click="findRecipe('not')">Partial Ingredient</a>
+      </center>
+    </div>
       <ion-list>
         <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in foundRecipe" type="item-text-wrap" href="#/recipe/{{recipe.id}}">
           <img ng-src="{{recipe.photo}}">

@@ -134,6 +134,11 @@ angular.module('starter.services', [])
     return inputIngredient;
 })
 
+.factory('InputSearch', function() {
+    inputSearch = "exact";
+    return inputSearch;
+})
+
 .factory('InputTopRecipe', function() {
     InputTopRecipe = "10";
     return InputTopRecipe;

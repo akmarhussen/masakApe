@@ -9,18 +9,16 @@
 
     <ion-content class="scroll recipeList">
       <div>
-        <div class="list">
-          <label class="item item-input">
+        <div class="top-recipe-option" align="center">
             <span>Top:</span>&nbsp;
-            <select ng-model="mySelect" ng-change="showSelectValue(mySelect)" class="item item-input item-select">
+            <select ng-model="mySelect" ng-change="showSelectValue(mySelect)">
               <option>5</option>
               <option>10</option>
               <option>20</option>
               <option>50</option>
-            </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#" class="advanced">Advanced</a>&nbsp;
-            <a class="button button-assertive" ng-click="getBestRecipe()"><i class="icon ion-search"></i></a>
-          </label>
+            </select>&nbsp;
+            <a class="advanced" ng-click="openModal()">Advanced</a>&nbsp;
+<!--               <a class="button button-assertive" ng-click="getBestRecipe()"><i class="icon ion-search"></i></a> -->
         </div>
       </div>
       <ion-list>
@@ -46,3 +44,16 @@
     </div>
   </ion-pane>
 </ion-view>
+
+<script id="my-modal.html" type="text/ng-template">
+  <div class="adic-modal">
+    <ion-modal-view class="adic-popup">
+      <ion-header-bar>
+        <h1 class="title">My Modal title</h1>
+      </ion-header-bar>
+      <ion-content>
+        Hello! <a class="advanced" ng-click="closeModal()">Advanced</a>
+      </ion-content>
+    </ion-modal-view>
+  </div>
+</script>

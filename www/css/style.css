@@ -187,8 +187,9 @@ div.footer
 	height: 40px;
 }
 
-.list {
+.top-recipe-option {
 	padding-top: -4px;
+	padding-bottom: 5px;
 }
 
 .searchBtn {
@@ -214,6 +215,25 @@ div.footer
 
 .recipeList {
 	margin-bottom: 50px;
+}
+
+.adic-modal .modal {
+    min-height: 0 !important;
+}
+
+.adic-popup {
+    width: 90%;
+    height: 60%;
+    top: 20%;
+    bottom: 20%;
+    right: 5%;
+    left: 5%;
+    background-color: #ffffff;
+}
+
+/*----------------------------------------------------Found Recipe Page------------------------------------------------------*/
+.searchIngBtn {
+	padding-bottom: 5px;
 }
 
 /*----------------------------------------------------Top Recipe Page------------------------------------------------------*/
