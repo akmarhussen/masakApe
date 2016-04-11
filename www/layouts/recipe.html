@@ -6,33 +6,31 @@
 
     <ion-content class="scroll padding recipeList" ng-repeat="recipeDetail in recipeDetail">
 
+    <div>
+    <center><h3 class="recipeName" >{{recipeDetail.recipe}}</h3></center>
       <center><img ng-src="{{recipeDetail.photo}}" style="width: 100%; height: 200px"></center>
+      </div>
       
-      <center><h3 class="recipeName" >{{recipeDetail.recipe}}</h3></center>
       <p>
           <br>
-          <font size="3" color="black" >
-            <strong>INGREDIENT: </strong><br>
-          </font>
-
+          <img class="ingredientText" src="img/ingredient.png">
           <font size="2" color="black" >
-            <span ng-repeat="recipeIngredient in recipeIngredients">
-              <strong>{{recipeIngredient.number}})</strong> {{recipeIngredient.ingredient}}<br>
+            <span class="spanLeft" ng-repeat="recipeIngredient in recipeIngredients">
+               <i class="ion-ios-checkmark"></i> {{recipeIngredient.ingredient}}<br>
             </span>
           </font>
-
+<!-- {{recipeIngredient.number}} -->
           <br>
-          <font size="3" color="black" >
-              <strong>INSTRUCTION: </strong><br>
-
-          </font>
-
+          <img class="ingredientText" src="img/instruction.png">
           <font size="2" color="black" >
-          <span ng-bind-html='recipeDetail.instruction'></span></font>
+          <div  class="spanLeft" ng-bind-html='recipeDetail.instruction'></div></font>
       <br><br>
           <font size="2" color="gray" ><strong>RATING: </strong>{{recipeDetail.rating}}</font>
       <br>
       </p>
+
+      <center><button class="button icon-center button-outline button-assertive">Add to Favorites</button></center>
+      
     </ion-content>
 
     <div class="tabs tabs-icon-top tabs-assertive" >
