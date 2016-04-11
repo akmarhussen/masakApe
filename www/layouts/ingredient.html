@@ -5,29 +5,20 @@
     </ion-header-bar>
 
     <ion-content class="scroll">
-<!--       <div class="card ingredient-card">
- -->        <multiple-autocomplete ng-model="ingredient.name"
+       <!-- <div class="card ingredient-card"> -->
+        <multiple-autocomplete ng-model="ingredient.name"
           api-url="http://api.thebucketdev.com/masakape/ingredient/getAll.php"
           suggestions-arr="">
         </multiple-autocomplete>
-<!--       </div> -->
-
-      <div style="padding-left: 300px">
-        <br><center><a class="btnNext" href="#/foundRecipe">Next</a></center>
-      </div>
+      
     </ion-content>
-  
 
-    <ion-footer-bar>
-      <div class="tabs tabs-icon-top tabs-assertive" >
-        <a class="tab-item" href="#/menu" style="color:#ffffff;">
-        <i class="icon ion-home" ></i>Home</a>
-      
-        <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
-        <i class="icon ion-thumbsup"></i>Top Recipes</a>
-      
-        <a class="tab-item" style="color:#ffffff;"><i class="icon ion-heart"></i>Favorites</a>
-      </div>
-    </ion-footer-bar>
-  </ion-pane>
+    <div class="bar bar-footer bar-assertive">
+      <a class="btnFooter1 allignLeft" ng-click="myGoBack()" ng-controller="MainCtrl"><i class="icon ion-arrow-left-a"></i> </a>
+      </a>
+      <a class="btnFooter2 allignRight" href="#/foundRecipe" ><i class="icon ion-arrow-right-a"></i> </a>
+      </a>
+    </div>
+
+    </ion-pane>
 </ion-view>

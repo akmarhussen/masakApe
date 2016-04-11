@@ -11,20 +11,14 @@
             <ion-radio name="oc" class="radio-assertive" ng-repeat="occasion in occasions" ng-click="toggleOccasion(occasion.occasion)">{{ occasion.occasion }}</ion-radio>
           </ion-list>
         </div>
-        <div class="btnNextDiv">
-          <a class="btnNext" href="#/ingredient">Next</a>
-        </div>
       </div>
     </ion-content>
 
-    <div class="tabs tabs-icon-top tabs-assertive" >
-      <a class="tab-item" href="#/menu" style="color:#ffffff;">
-      <i class="icon ion-home" ></i>Home</a>
-
-      <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
-      <i class="icon ion-thumbsup"></i>Top Recipes</a>
-
-      <a class="tab-item" style="color:#ffffff;"><i class="icon ion-heart"></i>Favorites</a>
+    <div class="bar bar-footer bar-assertive">
+      <a class="btnFooter1 allignLeft" ng-click="myGoBack()" ng-controller="MainCtrl"><i class="icon ion-arrow-left-a"></i> </a>
+      </a>
+      <a class="btnFooter2 allignRight" href="#/ingredient" ><i class="icon ion-arrow-right-a"></i> </a>
+      </a>
     </div>
   </ion-pane>
 </ion-view>

@@ -14,19 +14,18 @@
 
           <p class="warn"> *You are required to select at least one cuisine </p>
 
-          <br><center> <a class="btnNext" href="#/occasion">Next</a></center>
-        </div>
       </div>
+
+     </div>
+
     </ion-content>
 
-    <div class="tabs tabs-icon-top tabs-assertive" >
-      <a class="tab-item" href="#/menu" style="color:#ffffff;">
-      <i class="icon ion-home" ></i>Home</a>
-
-      <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
-      <i class="icon ion-thumbsup"></i>Top Recipes</a>
-
-      <a class="tab-item" style="color:#ffffff;"><i class="icon ion-heart"></i>Favorites</a>
+    <div class="bar bar-footer bar-assertive">
+      <a class="btnFooter1 allignLeft" ng-click="myGoBack()" ng-controller="MainCtrl"><i class="icon ion-arrow-left-a"></i> </a>
+      </a>
+      <a class="btnFooter2 allignRight" href="#/occasion" ><i class="icon ion-arrow-right-a"></i> </a>
+      </a>
     </div>
+
   </ion-pane>
 </ion-view>

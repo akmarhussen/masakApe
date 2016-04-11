@@ -4,7 +4,7 @@
 	min-height: 0 !important;
 }*/
 
-/*----------------------------------------------------Home Page------------------------------------------------------*/
+/*----------------------------------------------------Menu Page------------------------------------------------------*/
 
 .logo{
 	width: 50px;
@@ -14,7 +14,9 @@
 
 .hometext {
 	width: 269px;
-	height: 33px;
+	height: 50px;
+	padding-bottom: 20px;
+	padding-top: 1px;
 }
 .home {
 	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
@@ -69,26 +71,26 @@
 {
 	padding-left: 22px;
 	padding-right: 22px;
-	padding-top: 14px;
+	padding-top: 46px;
 	padding-bottom: 22px;
 }
 
 .lang 
 {
-	text-decoration:none
+	text-decoration:none;
 }
 
-.btnNextDiv{
+/*.btnNextDiv{
 	padding-bottom: 20px;
     margin-bottom: 50px;
-}
+}*/
 /*----------------------------------------------------Footer------------------------------------------------------*/
 div.footer
 {
-  /*width: 180px;*/
+/*  width: 180px;*/
   display: block;
   margin: auto;
-  /*padding-left: 5px;
+/*  padding-left: 5px;
   margin-left: auto;
   margin-right: auto;*/
 }
@@ -97,12 +99,28 @@ div.footer
 	padding: 0;
 }
 
+.btnFooter1{
+	font-size: 44px;
+}
+
+.btnFooter2{
+	font-size: 44px;
+}
+
+.allignRight{
+	position: absolute;
+    right: 10px;
+}
+.allignLeft{
+	position: absolute;
+    left: 10px;
+}
 /*----------------------------------------------------Header------------------------------------------------------*/
 
 .header {
 	width: 100%;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	height: 140px;
 }
 
 .headLogo{
@@ -113,7 +131,7 @@ div.footer
 /*----------------------------------------------------Cusine Page------------------------------------------------------*/
 
 .has-header{
-	top:145px;
+	top:150px;
 }
 
 .bar{
@@ -150,10 +168,10 @@ div.footer
 /*----------------------------------------------------Recipe Page------------------------------------------------------*/
 .recipeName
 {
-	font-family:century Gothic;
+	font-family:franklin gothic demi;
 	font-weight: bold; 
-	color: #ef473a;
-	text-decoration: underline;
+	color: #000000;
+	text-decoration: none;
 }
 
 .ingre {
@@ -205,10 +223,6 @@ div.footer
 	padding-left: 200px;
 }
 
-.ingredient-card {
-	height: 300px;
-}
-
 /*.button-clear {
 	width: 100%;
 }*/
@@ -236,6 +250,10 @@ div.footer
 	padding-bottom: 5px;
 }
 
+.spanLeft {
+	padding-left: 15px;
+}
+
 /*----------------------------------------------------Top Recipe Page------------------------------------------------------*/
 .advanced {
 	color: blue;
@@ -258,4 +276,14 @@ div.footer
 
 .inputIngredientIcon {
 	width: 10%;
+}
+
+.ingredient-card
+{
+	min-height: 300px;
+}
+
+.ingredientText{
+	width: 100%;
+	height: 60px;
 }
