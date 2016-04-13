@@ -6,17 +6,20 @@
 
 /*----------------------------------------------------Menu Page------------------------------------------------------*/
 
-.logo{
-	width: 50px;
-	padding-top: 20px;
+.mainLogo{
+	width: 395px;
+	padding-top: 99px;
+	height: 208px;
 }
 
 
 .hometext {
 	width: 269px;
-	height: 50px;
-	padding-bottom: 20px;
-	padding-top: 1px;
+	height: 29px;
+	padding-bottom: 40px;
+	padding-top: 10px;
+	font-style: century gothic;
+	font-style: bold;
 }
 .home {
 	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
@@ -70,8 +73,7 @@
 .col
 {
 	padding-left: 22px;
-	padding-right: 22px;
-	padding-top: 46px;
+	padding-right:1px;
 	padding-bottom: 22px;
 }
 
