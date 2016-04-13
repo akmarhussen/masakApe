@@ -40,7 +40,7 @@
       <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
       <i class="icon ion-thumbsup"></i>Top Recipes</a>
 
-      <a class="tab-item" style="color:#ffffff;"><i class="icon ion-heart" style="color:#ffffff;"></i>Favorites</a>
+      <a class="tab-item" style="color:#ffffff;" ui-sref="favRecipe" ui-sref-opts="{reload: true, inherit: false}"><i class="icon ion-heart" style="color:#ffffff;"></i>Favorites</a>
     </div>
   </ion-pane>
 </ion-view>
@@ -51,7 +51,8 @@
       <ion-header-bar>
         <h1 class="title">My Modal title</h1>
       </ion-header-bar>
-      <ion-content>
+      <ion-content class="modal-header" ng-controller="CuisineController">
+        <ion-checkbox class="checkbox-assertive checkbox-modal" value="{{ cuisine.cuisine }}" ng-repeat="cuisine in cuisines" ng-checked="userCuisine.indexOf(cuisine.cuisine)>-1" ng-click="toggleSelection(cuisine.cuisine)">{{ cuisine.cuisine }}</ion-checkbox>
         Hello! <a class="advanced" ng-click="closeModal()">Advanced</a>
       </ion-content>
     </ion-modal-view>

@@ -30,3 +30,15 @@ ON o.id = ro.occasion_id
 WHERE c.cuisine IN ("Arabic", "Western")
 AND o.occasion = "Breakfast"
 
+SELECT r.*
+FROM   recipes r
+INNER JOIN (SELECT   ri.recipe_id
+            FROM     recipe_ingredient ri
+            INNER JOIN recipes r
+            ON r.id = ri.recipe_id
+            INNER JOIN ingredients i
+            ON i.id = ri.ingredient_id
+            WHERE    i.ingredient IN ("Lime leaves","Coconut milk","Red chilli")
+            GROUP BY ri.recipe_id
+            HAVING   Count(ri.recipe_id) = 3) aa
+ON r.id = aa.recipe_id

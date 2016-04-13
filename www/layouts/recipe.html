@@ -29,7 +29,10 @@
       <br>
       </p>
 
-      <center><button class="button icon-center button-outline button-assertive">Add to Favorites</button></center>
+      <center>
+        <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Add to Favorites</a>
+        <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Remove from Favorites</a>
+      </center>
       
     </ion-content>
 
@@ -40,7 +43,7 @@
       <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
       <i class="icon ion-thumbsup"></i>Top Recipes</a>
 
-      <a class="tab-item" style="color:#ffffff;"><i class="icon ion-heart"></i>Favorites</a>
+      <a class="tab-item" style="color:#ffffff;" ui-sref="favRecipe" ui-sref-opts="{reload: true, inherit: false}"><i class="icon ion-heart"></i>Favorites</a>
     </div>
   </ion-pane>
 </ion-view>

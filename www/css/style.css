@@ -1,16 +1,13 @@
- Empty. Add your own CSS if you like */
 /*----------------------------------------------------Main------------------------------------------------------*/
-/*.button {
-	min-height: 0 !important;
-}*/
+.button {
+	min-height: 0;
+}
 
 /*----------------------------------------------------Menu Page------------------------------------------------------*/
 
 .logo{
-	width: 50px;
 	padding-top: 20px;
 }
-
 
 .hometext {
 	width: 269px;
@@ -18,6 +15,7 @@
 	padding-bottom: 20px;
 	padding-top: 1px;
 }
+
 .home {
 	background: url('../img/wallpaperAi.png') no-repeat center center fixed; 
   	background-size: cover;
@@ -67,16 +65,7 @@
 	text-decoration:none;
 }
 
-.col
-{
-	padding-left: 22px;
-	padding-right: 22px;
-	padding-top: 46px;
-	padding-bottom: 22px;
-}
-
-.lang 
-{
+.lang {
 	text-decoration:none;
 }
 
@@ -259,6 +248,14 @@ div.footer
 	color: blue;
 }
 
+.checkbox-modal {
+	display: inline-block;
+	border-style: none;
+}
+
+.modal-header {
+	top: 44px;
+}
 /*----------------------------------------------------Ingredient Page------------------------------------------------------*/
 .ingredientSelect {
 	border: 1px solid rgba(0, 0, 0, 0.3);

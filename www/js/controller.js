@@ -28,23 +28,15 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('IonAutocompleteController', function ($scope, $http) {
-    $scope.model = "";
-    $scope.clickedValueModel = "";
-    $scope.removedValueModel = "";
-    $scope.getTestItems = function (query, isInitializing) {
-        if (isInitializing) {
-            return null;
-        } else {
-            return $http.get('http://api.thebucketdev.com/masakape/ingredient/getAll.php');
-        }
-    };
-    $scope.itemsClicked = function (callback) {
-        $scope.clickedValueModel = callback;
-    };
-    $scope.itemsRemoved = function (callback) {
-        $scope.removedValueModel = callback;
-    };
+.controller('MenuController', function($scope, $state, $ionicPlatform, $location, $ionicHistory) {
+  	$ionicPlatform.registerBackButtonAction(function() {
+		if ($location.path() === "/") {
+		  navigator.app.exitApp();
+		}
+		else {
+		  $ionicHistory.goBack();
+		}
+	}, 100);
 })
 
 .controller('IngredientController', function($scope, ingredientServices) {
@@ -57,8 +49,15 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('recipeController', function($scope, $stateParams, recipeServices, InputTopRecipe, $ionicLoading, $ionicModal) {
+.controller('recipeController', function($scope, $stateParams, recipeServices, InputTopRecipe, $ionicLoading, $ionicModal, CacheFactory, FavouriteRecipe, $state) {
  	$scope.mySelect = InputTopRecipe;
+ 	if (!CacheFactory.get('favRecipeCache')) {
+	 	CacheFactory.createCache('favRecipeCache', {
+	 		storageMode: 'localStorage'
+	 	});
+	}
+	var favRecipeCache = CacheFactory.get('favRecipeCache');
+	var favRecipe = FavouriteRecipe;
  	
  	$scope.show = function(){
  		$ionicLoading.show();
@@ -84,13 +83,24 @@ angular.module('starter.controllers', [])
             $scope.recipes = data;
             $ionicLoading.hide();
         });
-        console.log($scope.mySelect);
     };
 
 	$scope.showRecipeId = function() {
-      recipeServices.getId($stateParams.recipeId).success(function(recipe) {
+		if(favRecipeCache.get('fav')){
+			favRecipe = favRecipeCache.get('fav');
+		}else{
+			favRecipe = [];
+		}
+		
+		$scope.favRecipeExists = true;
+		for($i=0; $i<favRecipe.length;$i++){
+			if(favRecipe[$i]==$stateParams.recipeId){
+				$scope.favRecipeExists = false;
+			}
+		}
+      	recipeServices.getId($stateParams.recipeId).success(function(recipe) {
             $scope.recipeDetail = recipe;
-        });   
+        });
     };
     $scope.showRecipeId();
 
@@ -113,18 +123,58 @@ angular.module('starter.controllers', [])
 	$scope.closeModal = function() {
 		$scope.modal.hide();
 	};
-	//Cleanup the modal when we're done with it!
-	$scope.$on('$destroy', function() {
-		$scope.modal.remove();
-	});
-	// Execute action on hide modal
-	$scope.$on('modal.hidden', function() {
-		// Execute action
-	});
-	// Execute action on remove modal
-	$scope.$on('modal.removed', function() {
-		// Execute action
-	});
+	// //Cleanup the modal when we're done with it!
+	// $scope.$on('$destroy', function() {
+	// 	$scope.modal.remove();
+	// });
+	// // Execute action on hide modal
+	// $scope.$on('modal.hidden', function() {
+	// 	// Execute action
+	// });
+	// // Execute action on remove modal
+	// $scope.$on('modal.removed', function() {
+	// 	// Execute action
+	// });
+
+	$scope.addToFav = function(myFav){
+		favRecipe.push(myFav);
+		favRecipeCache.put('fav', favRecipe);
+		$scope.showRecipeId();
+	};
+
+	$scope.getFavRecipe = function getFavRecipe(){
+    	if(favRecipe.length==0){
+    		$scope.favRecipeCacheExist=false;
+    	}else{
+    		$scope.favRecipeCacheExist=true;
+    		$ionicLoading.show();
+	        recipeServices.getFavRecipe({
+	            recipeId: favRecipeCache.get('fav')
+	        }).success(function(data){
+	            $scope.favRecipes = data;
+	            $ionicLoading.hide();
+	        });
+    	}
+    };
+    $scope.getFavRecipe();
+
+    $scope.removeFromFav = function(myFav){
+		$favRecipeList = favRecipeCache.get('fav');
+		$x = null;
+		for($i=0; $i<$favRecipeList.length; $i++){
+			if($favRecipeList[$i]==myFav){
+				$x = $i;
+			}
+		}
+		favRecipe.splice($x,1);
+		favRecipeCache.put('fav', favRecipe);
+		$scope.showRecipeId();
+	};
+
+	$scope.doRefresh = function() {
+	    $scope.getFavRecipe();
+	    $scope.$broadcast('scroll.refreshComplete');
+	};
 })
 
 .controller('findRecipeController', function($scope, findRecipeServices, InputCuisine, InputOccasion, InputIngredient, InputSearch, $ionicLoading) {
