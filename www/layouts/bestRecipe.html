@@ -48,12 +48,21 @@
 <script id="my-modal.html" type="text/ng-template">
   <div class="adic-modal">
     <ion-modal-view class="adic-popup">
-      <ion-header-bar>
-        <h1 class="title">My Modal title</h1>
+      <ion-header-bar align-title="center">
+        <h1 class="title">Advanced Filter</h1>
       </ion-header-bar>
-      <ion-content class="modal-header" ng-controller="CuisineController">
-        <ion-checkbox class="checkbox-assertive checkbox-modal" value="{{ cuisine.cuisine }}" ng-repeat="cuisine in cuisines" ng-checked="userCuisine.indexOf(cuisine.cuisine)>-1" ng-click="toggleSelection(cuisine.cuisine)">{{ cuisine.cuisine }}</ion-checkbox>
-        Hello! <a class="advanced" ng-click="closeModal()">Advanced</a>
+      <ion-content class="modal-header">
+        <h4>Cuisine:</h4>
+        <div ng-controller="CuisineController">
+          <ion-checkbox class="checkbox-assertive checkbox-modal" value="{{ cuisine.cuisine }}" ng-repeat="cuisine in cuisines" ng-checked="userCuisine.indexOf(cuisine.cuisine)>-1" ng-click="toggleCuisine(cuisine.cuisine)">{{ cuisine.cuisine }}</ion-checkbox>
+        </div>
+        <h4>Occasion:</h4>
+        <div ng-controller="OccasionController">
+          <ion-checkbox class="checkbox-assertive checkbox-modal" value="{{ occasion.occasion }}" ng-repeat="occasion in occasions" ng-checked="useroccasion.indexOf(occasion.occasion)>-1" ng-click="toggleOccasion(occasion.occasion)">{{ occasion.occasion }}</ion-checkbox>
+        </div>
+        <center>
+          <a class="button icon-center button-outline button-assertive"ng-click="closeModal()">Close</a>
+        </center>
       </ion-content>
     </ion-modal-view>
   </div>

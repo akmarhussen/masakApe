@@ -171,4 +171,14 @@ angular.module('starter.services', [])
 .factory('FavouriteRecipe', function() {
     FavouriteRecipe = [];
     return FavouriteRecipe;
+})
+
+.factory('FilterCuisine', function() {
+    filterCuisine = [];
+    return filterCuisine;
+})
+
+.factory('FilterOccasion', function() {
+    filterOccasion = [];
+    return filterOccasion;
 });

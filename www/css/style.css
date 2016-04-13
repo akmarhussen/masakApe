@@ -235,6 +235,7 @@ div.footer
     right: 5%;
     left: 5%;
     background-color: #ffffff;
+    border-style: groove;
 }
 
 /*----------------------------------------------------Found Recipe Page------------------------------------------------------*/
@@ -254,10 +255,16 @@ div.footer
 .checkbox-modal {
 	display: inline-block;
 	border-style: none;
+	padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 45px;
 }
 
 .modal-header {
 	top: 44px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 /*----------------------------------------------------Ingredient Page------------------------------------------------------*/
 .ingredientSelect {

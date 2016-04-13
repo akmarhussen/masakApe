@@ -49,8 +49,11 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('recipeController', function($scope, $stateParams, recipeServices, InputTopRecipe, $ionicLoading, $ionicModal, CacheFactory, FavouriteRecipe, $state) {
+.controller('recipeController', function($scope, $stateParams, recipeServices, InputTopRecipe, $ionicLoading, $ionicModal, CacheFactory, FavouriteRecipe, $state, FilterCuisine, FilterOccasion) {
  	$scope.mySelect = InputTopRecipe;
+ 	$scope.filterCuisine = FilterCuisine;
+ 	$scope.filterOccasion = FilterOccasion;
+
  	if (!CacheFactory.get('favRecipeCache')) {
 	 	CacheFactory.createCache('favRecipeCache', {
 	 		storageMode: 'localStorage'
@@ -78,7 +81,9 @@ angular.module('starter.controllers', [])
 	$scope.getBestRecipe = function getBestRecipe(){
 		$ionicLoading.show();
         recipeServices.getBestRecipe({
-            topRecipe: $scope.mySelect
+            topRecipe: $scope.mySelect,
+            cuisine: $scope.filterCuisine,
+            occasion: $scope.filterOccasion
         }).success(function(data){
             $scope.recipes = data;
             $ionicLoading.hide();
@@ -175,6 +180,38 @@ angular.module('starter.controllers', [])
 	    $scope.getFavRecipe();
 	    $scope.$broadcast('scroll.refreshComplete');
 	};
+
+	$scope.toggleCuisine = function toggleCuisine(cuisine) {
+	    $idx = $scope.filterCuisine.indexOf(cuisine);
+
+	    // is currently selected
+	    if ($idx > -1) {
+	      $scope.filterCuisine.splice($idx, 1);
+	    }
+
+	    // is newly selected
+	    else {
+	      $scope.filterCuisine.push(cuisine);
+	    }
+	    console.log($scope.filterCuisine);
+	    $scope.getBestRecipe();
+	};
+
+	$scope.toggleOccasion = function toggleOccasion(occasion) {
+	    $idx = $scope.filterOccasion.indexOf(occasion);
+
+	    // is currently selected
+	    if ($idx > -1) {
+	      $scope.filterOccasion.splice($idx, 1);
+	    }
+
+	    // is newly selected
+	    else {
+	      $scope.filterOccasion.push(occasion);
+	    }
+	    console.log($scope.filterOccasion);
+	    $scope.getBestRecipe();
+	};
 })
 
 .controller('findRecipeController', function($scope, findRecipeServices, InputCuisine, InputOccasion, InputIngredient, InputSearch, $ionicLoading) {
@@ -201,9 +238,13 @@ angular.module('starter.controllers', [])
 	$scope.toggleOccasion = function toggleOccasion(occasion) {
 	    $scope.userOccasion.pop();
 	    $scope.userOccasion.push(occasion);
-	    console.log($scope.userOccasion);
 	};
     $scope.findRecipe = function findRecipe(userSearch){
+    	if(userSearch=="not"){
+    		$scope.userSearch=false;
+    	}else{
+    		$scope.userSearch=true;
+    	}
     	$ionicLoading.show();
         findRecipeServices.findRecipe({
             cuisine: $scope.userCuisine,
