@@ -83,5 +83,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'recipeController'
   });
 
+  $stateProvider.state('aboutUs', {
+    url: '/aboutUs',
+    templateUrl: 'layouts/aboutUs.html',
+    // controller: 'recipeController'
+  });
+
+  $stateProvider.state('contactUs', {
+    url: '/contactUs',
+    templateUrl: 'layouts/contactUs.html',
+    // controller: 'recipeController'
+  });
+
+
   $urlRouterProvider.otherwise('/');
 })
