@@ -49,7 +49,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('recipeController', function($scope, $stateParams, recipeServices, InputTopRecipe, $ionicLoading, $ionicModal, CacheFactory, FavouriteRecipe, $state, FilterCuisine, FilterOccasion) {
+.controller('recipeController', function($scope, $stateParams, recipeServices, InputTopRecipe, $ionicLoading, $ionicModal, CacheFactory, FavouriteRecipe, $state, FilterCuisine, FilterOccasion, ionicToast) {
  	$scope.mySelect = InputTopRecipe;
  	$scope.filterCuisine = FilterCuisine;
  	$scope.filterOccasion = FilterOccasion;
@@ -106,6 +106,11 @@ angular.module('starter.controllers', [])
       	recipeServices.getId($stateParams.recipeId).success(function(recipe) {
             $scope.recipeDetail = recipe;
         });
+
+        $scope.rating = {};
+		$scope.rating.rate = 3;
+		$scope.rating.max = 5;
+		$scope.readOnly = true;
     };
     $scope.showRecipeId();
 
@@ -127,6 +132,43 @@ angular.module('starter.controllers', [])
 	};
 	$scope.closeModal = function() {
 		$scope.modal.hide();
+	};
+
+	$ionicModal.fromTemplateUrl('rating-modal.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function(modal) {
+		$scope.ratingModal = modal;
+	});
+	$scope.recipeId = null;
+	$scope.recipeRating = null;
+	$scope.giveRating = function(recipeId, rating) {
+		$scope.recipeId = recipeId;
+		$scope.recipeRating = rating;
+		$scope.ratingModal.show();
+	};
+
+	$scope.showToastBottom = function(){
+      ionicToast.show('Rating saved.', 'bottom',false, 2000);
+    };
+
+	$scope.saveRating = function() {
+		$ionicLoading.show();
+		if($scope.recipeRating == 0){
+			$averageRating = ($scope.recipeRating*1 + $scope.rating.rate*1);
+		}else {
+			$averageRating = ($scope.recipeRating*1 + $scope.rating.rate*1) / 2;
+		}
+		recipeServices.saveRating({
+            recipeId: $scope.recipeId,
+            rating: $averageRating
+        }).success(function(data){
+            
+        });
+		$scope.ratingModal.hide();
+		$scope.showRecipeId();
+		$ionicLoading.hide();
+		$scope.showToastBottom();
 	};
 	// //Cleanup the modal when we're done with it!
 	// $scope.$on('$destroy', function() {

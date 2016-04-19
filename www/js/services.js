@@ -109,6 +109,13 @@ angular.module('starter.services', [])
                     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
                 }
             });
+        },
+        saveRating: function (rating){
+            return $http.post(baseUrl+'saveRating.php',rating,{
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
+                }
+            });
         }
     };
 })

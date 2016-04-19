@@ -27,13 +27,17 @@
       <br>
           <!-- <font size="2" color="gray" ><strong>RATING: </strong>{{recipeDetail.rating}}</font> -->
           <img class="ingredientText" src="img/rating.png">
-          <center><strong>{{recipeDetail.rating}}</strong></center>
+          <center>
+            <rating ng-model="recipeDetail.rating" max="rating.max" readonly="readOnly"></rating>
+            <strong>{{recipeDetail.rating}}</strong>
+          </center>
       <br><br>
       </p>
 
       <center>
         <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Add to Favorites</a>
         <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Remove from Favorites</a>
+        <a class="button icon-center button-outline button-assertive" ng-click="giveRating(recipeDetail.id, recipeDetail.rating)">Give Rating</a>
       </center>
       
     </ion-content>
@@ -49,3 +53,23 @@
     </div>
   </ion-pane>
 </ion-view>
+
+<script id="rating-modal.html" type="text/ng-template">
+  <div class="adic-modal">
+    <ion-modal-view class="rating-modal">
+      <ion-header-bar align-title="center">
+        <div class="bar bar-header bar-assertive">
+          <h1 class="title modal-title">Give your rating</h1>
+        </div>
+      </ion-header-bar>
+      <ion-content class="modal-header">
+        <center>
+          <div class="rating-star">
+            <rating ng-model="rating.rate" max="rating.max"></rating>
+          </div>
+          <a class="button icon-center button-outline button-assertive" ng-click="saveRating()">Save</a>
+        </center>
+      </ion-content>
+    </ion-modal-view>
+  </div>
+</script>
