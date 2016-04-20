@@ -116,26 +116,32 @@ angular.module('starter.services', [])
                     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
                 }
             });
+        },
+        saveReview: function (rating){
+            return $http.post(baseUrl+'saveReview.php',rating,{
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
+                }
+            });
+        },
+        getReview: function (recipeId){
+            return $http.get(baseUrl+'getReview.php?recipeId='+recipeId); 
         }
     };
 })
 
-// .service('favRecipeServices', function (CacheFactory) {
-//     var favRecipeCache;
-//     if (!CacheFactory.get('favRecipeCache')) {
-//         favRecipeCache = CacheFactory('favRecipeCache');
-//     }
-
-//     return {
-//         getId: function (id){
-//             favRecipeCache.put('fav',{
-//                 recipeId: myFav
-//             });
-//         }
-//     };
-//     // Check to make sure the cache doesn't already exist
-    
-// })
+.factory('feedbackServices', function($http) {
+    var baseUrl = 'http://api.thebucketdev.com/masakape/';
+    return {
+        sendFeedback: function (feedback){
+            return $http.post(baseUrl+'feedback.php',feedback,{
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
+                }
+            });
+        }
+    };
+})
 
 .factory('findRecipeServices', function($http) {
     var baseUrl = 'http://api.thebucketdev.com/masakape/recipe/';

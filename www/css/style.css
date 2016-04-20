@@ -29,7 +29,7 @@
 }
 
 .ionic_toast_bottom {
-  bottom: 10px;
+  bottom: 50px !important;
 }
 
 .ionic_toast_close {
@@ -179,6 +179,17 @@
 	padding-bottom: 20px;
     margin-bottom: 50px;
 }*/
+
+.username-modal {
+    width: 90%;
+    height: 190px;
+    top: 30%;
+    bottom: 30%;
+    right: 5%;
+    left: 5%;
+    background-color: #ffffff;
+    border-style: groove;
+}
 
 /*----------------------------------------------------About Us Page------------------------------------------------------*/
 
@@ -383,6 +394,9 @@ ul.rating li i {
 	padding: 20px;
 }
 
+.comment {
+	padding: 5px 15px 5px 15px;
+}
 /*----------------------------------------------------Found Recipe Page------------------------------------------------------*/
 .searchIngBtn {
 	padding-bottom: 5px;
@@ -441,4 +455,9 @@ ul.rating li i {
 
 .ingredientText{
 	width: 100%;
+}
+
+/*----------------------------------------------------Contact Us Page------------------------------------------------------*/
+.contact-message {
+	height: 100px;
 }
