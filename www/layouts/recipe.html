@@ -19,12 +19,13 @@
                <i class="ion-ios-checkmark"></i> {{recipeIngredient.ingredient}}<br>
             </span>
           </font>
-<!-- {{recipeIngredient.number}} -->
+
+          <br><img class="ingredientText" src="img/time.png"> <h4><center>{{recipeDetail.time}}</center></h4>
           <br>
           <img class="ingredientText" src="img/instruction.png">
           <font size="2" color="black" >
           <div  class="spanLeft" ng-bind-html='recipeDetail.instruction'></div></font>
-      <br>
+          <br>
           <!-- <font size="2" color="gray" ><strong>RATING: </strong>{{recipeDetail.rating}}</font> -->
           <img class="ingredientText" src="img/rating.png">
           <center>
@@ -34,6 +35,8 @@
       <br><br>
       </p>
 
+      <br><center><img class="ingredientText" src="img/comment.png"></center>
+
       <center>
         <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Add to Favorites</a>
         <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Remove from Favorites</a>
@@ -41,6 +44,7 @@
         <br>
         <a class="button icon-center button-outline button-assertive" ng-click="openReviewModal()">Give Review</a>
       </center>
+
       
     </ion-content>
 
