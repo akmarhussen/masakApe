@@ -394,6 +394,9 @@ ul.rating li i {
 	padding: 20px;
 }
 
+.comment {
+	padding: 5px 15px 5px 15px;
+}
 /*----------------------------------------------------Found Recipe Page------------------------------------------------------*/
 .searchIngBtn {
 	padding-bottom: 5px;

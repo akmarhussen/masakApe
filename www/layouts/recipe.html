@@ -31,17 +31,22 @@
           <center>
             <rating ng-model="recipeDetail.rating" max="rating.max" readonly="readOnly"></rating>
             <strong>{{recipeDetail.rating}}</strong>
+            <div>
+              <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Add to Favorites</a>
+              <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Remove from Favorites</a>
+              <a class="button icon-center button-outline button-assertive" ng-click="giveRating(recipeDetail.id, recipeDetail.rating)">Rate This</a>
+            </div>
           </center>
       <br><br>
       </p>
 
       <br><center><img class="ingredientText" src="img/comment.png"></center>
-
+      
+      <div class="comment" ng-repeat="recipeReview in recipeReviews">
+        <strong><i class="icon ion-person"></i> {{recipeReview.username}}</strong><br>
+        {{recipeReview.comment}}
+      </div>
       <center>
-        <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Add to Favorites</a>
-        <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Remove from Favorites</a>
-        <a class="button icon-center button-outline button-assertive" ng-click="giveRating(recipeDetail.id, recipeDetail.rating)">Give Rating</a>
-        <br>
         <a class="button icon-center button-outline button-assertive" ng-click="openReviewModal()">Give Review</a>
       </center>
 
@@ -86,16 +91,17 @@
     <ion-modal-view class="username-modal">
       <ion-header-bar align-title="center">
         <div class="bar bar-header bar-assertive">
-          <h1 class="title modal-title">Give your review</h1>
+          <h1 class="title modal-title">Review</h1>
         </div>
       </ion-header-bar>
       <ion-content class="modal-header" scroll="false" ng-repeat="recipeDetail in recipeDetail">
         <center>
           <div class="list list-inset">
             <label class="item item-input">
-              <input type="text" ng-model="review.comment">
+              <input type="text" ng-model="review.comment" placeholder="Enter your review">
             </label>
           </div>
+          <a class="button icon-center button-outline button-assertive" ng-click="closeReviewModal()">Cancel</a>
           <a class="button icon-center button-outline button-assertive" ng-click="saveReview(recipeDetail.id)">Save</a>
         </center>
       </ion-content>

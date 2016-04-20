@@ -123,6 +123,9 @@ angular.module('starter.services', [])
                     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
                 }
             });
+        },
+        getReview: function (recipeId){
+            return $http.get(baseUrl+'getReview.php?recipeId='+recipeId); 
         }
     };
 })

@@ -39,7 +39,9 @@ angular.module('starter.controllers', [])
 
     $ionicModal.fromTemplateUrl('username-modal.html', {
 		scope: $scope,
-		animation: 'slide-in-up'
+		animation: 'slide-in-up',
+		backdropClickToClose: false,
+		hardwareBackButtonClose: false
 	}).then(function(modal) {
 		$scope.usernameModal = modal;
 	});
@@ -169,11 +171,18 @@ angular.module('starter.controllers', [])
     $scope.showRecipeId();
 
     $scope.showRecipeIngredient = function() {
-      recipeServices.getRecipeIngredient($stateParams.recipeId).success(function(recipe) {
-            $scope.recipeIngredients = recipe;
-        });   
+      	recipeServices.getRecipeIngredient($stateParams.recipeId).success(function(recipe) {
+	        $scope.recipeIngredients = recipe;
+	    });   
     };
     $scope.showRecipeIngredient();
+
+    $scope.showRecipeReview = function() {
+    	recipeServices.getReview($stateParams.recipeId).success(function(recipe) {
+	        $scope.recipeReviews = recipe;
+	    }); 
+    };
+    $scope.showRecipeReview();
 
     $ionicModal.fromTemplateUrl('my-modal.html', {
 		scope: $scope,
@@ -321,7 +330,9 @@ angular.module('starter.controllers', [])
 
 	$ionicModal.fromTemplateUrl('review-modal.html', {
 		scope: $scope,
-		animation: 'slide-in-up'
+		animation: 'slide-in-up',
+		backdropClickToClose: false,
+		hardwareBackButtonClose: false
 	}).then(function(modal) {
 		$scope.reviewModal = modal;
 	});
@@ -333,16 +344,21 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.saveReview = function(recipeId) {
-		$ionicLoading.show();
-		recipeServices.saveReview({
-            recipeId: recipeId,
-            comment: $scope.review.comment,
-            username: userNameCache.get('name')
-        }).success(function(data){
-            $ionicLoading.hide();
-        });
-		$scope.closeReviewModal();
-		ionicToast.show('Review submitted.', 'bottom',false, 2000);
+		if($scope.review.comment==null || $scope.review.comment==""){
+			ionicToast.show('Please fill your review.', 'bottom',false, 2000);
+		}else{
+			$ionicLoading.show();
+			recipeServices.saveReview({
+	            recipeId: recipeId,
+	            comment: $scope.review.comment,
+	            username: userNameCache.get('name')
+	        }).success(function(data){
+	            $ionicLoading.hide();
+	        });
+			$scope.closeReviewModal();
+			$scope.showRecipeReview();
+			ionicToast.show('Review submitted.', 'bottom',false, 2000);
+		}
 	};
 })
 
