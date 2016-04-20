@@ -28,7 +28,28 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('MenuController', function($scope, $state, $ionicPlatform, $location, $ionicHistory) {
+.controller('MenuController', function($scope, $state, $ionicModal, $ionicPlatform, $location, $ionicHistory, CacheFactory, ionicToast, $timeout) {
+  	$scope.menu = [];
+
+  	$scope.showToastSignUp = function(){
+      ionicToast.show('Please Signup.', 'bottom',false, 2000);
+    };
+
+
+
+    $ionicModal.fromTemplateUrl('username-modal.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function(modal) {
+		$scope.usernameModal = modal;
+	});
+	$scope.openModal = function() {
+		$scope.usernameModal.show();
+	};
+	$scope.closeModal = function() {
+		$scope.usernameModal.hide();
+	};
+
   	$ionicPlatform.registerBackButtonAction(function() {
 		if ($location.path() === "/") {
 		  navigator.app.exitApp();
@@ -37,6 +58,31 @@ angular.module('starter.controllers', [])
 		  $ionicHistory.goBack();
 		}
 	}, 100);
+
+
+
+	if (!CacheFactory.get('userNameCache')) {
+	 	CacheFactory.createCache('userNameCache', {
+	 		storageMode: 'localStorage'
+	 	});
+	};
+	var userNameCache = CacheFactory.get('userNameCache');
+
+	$scope.showToastWelcome = function(){
+      ionicToast.show('Welcome back '+userNameCache.get('name')+'!', 'bottom',false, 2000);
+    };
+
+	$scope.saveUsername = function() {
+		userNameCache.put('name', $scope.menu.username);
+		$scope.closeModal();
+		ionicToast.show('Your name are saved.', 'bottom',false, 2000);
+	};
+
+	if(userNameCache.get('name')){
+		$scope.showToastWelcome();
+	}else {
+		$timeout($scope.openModal, 0);
+	}
 })
 
 .controller('IngredientController', function($scope, ingredientServices) {
@@ -59,8 +105,16 @@ angular.module('starter.controllers', [])
 	 		storageMode: 'localStorage'
 	 	});
 	}
+
+	if (!CacheFactory.get('userNameCache')) {
+	 	CacheFactory.createCache('userNameCache', {
+	 		storageMode: 'localStorage'
+	 	});
+	}
 	var favRecipeCache = CacheFactory.get('favRecipeCache');
 	var favRecipe = FavouriteRecipe;
+
+	var userNameCache = CacheFactory.get('userNameCache');
  	
  	$scope.show = function(){
  		$ionicLoading.show();
@@ -140,6 +194,7 @@ angular.module('starter.controllers', [])
 	}).then(function(modal) {
 		$scope.ratingModal = modal;
 	});
+
 	$scope.recipeId = null;
 	$scope.recipeRating = null;
 	$scope.giveRating = function(recipeId, rating) {
@@ -170,6 +225,10 @@ angular.module('starter.controllers', [])
 		$ionicLoading.hide();
 		$scope.showToastBottom();
 	};
+
+	$scope.closeRatingModal = function() {
+		$scope.ratingModal.hide();
+	};
 	// //Cleanup the modal when we're done with it!
 	// $scope.$on('$destroy', function() {
 	// 	$scope.modal.remove();
@@ -187,6 +246,7 @@ angular.module('starter.controllers', [])
 		favRecipe.push(myFav);
 		favRecipeCache.put('fav', favRecipe);
 		$scope.showRecipeId();
+		ionicToast.show('Recipe added to favourite.', 'bottom',false, 2000);
 	};
 
 	$scope.getFavRecipe = function getFavRecipe(){
@@ -202,6 +262,7 @@ angular.module('starter.controllers', [])
 	            $ionicLoading.hide();
 	        });
     	}
+    	console.log($scope.favRecipeExists);
     };
     $scope.getFavRecipe();
 
@@ -216,6 +277,7 @@ angular.module('starter.controllers', [])
 		favRecipe.splice($x,1);
 		favRecipeCache.put('fav', favRecipe);
 		$scope.showRecipeId();
+		ionicToast.show('Recipe removed from favourite.', 'bottom',false, 2000);
 	};
 
 	$scope.doRefresh = function() {
@@ -254,14 +316,78 @@ angular.module('starter.controllers', [])
 	    console.log($scope.filterOccasion);
 	    $scope.getBestRecipe();
 	};
+
+	$scope.review = [];
+
+	$ionicModal.fromTemplateUrl('review-modal.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function(modal) {
+		$scope.reviewModal = modal;
+	});
+	$scope.openReviewModal = function() {
+		$scope.reviewModal.show();
+	};
+	$scope.closeReviewModal = function() {
+		$scope.reviewModal.hide();
+	};
+
+	$scope.saveReview = function(recipeId) {
+		$ionicLoading.show();
+		recipeServices.saveReview({
+            recipeId: recipeId,
+            comment: $scope.review.comment,
+            username: userNameCache.get('name')
+        }).success(function(data){
+            $ionicLoading.hide();
+        });
+		$scope.closeReviewModal();
+		ionicToast.show('Review submitted.', 'bottom',false, 2000);
+	};
 })
 
-.controller('findRecipeController', function($scope, findRecipeServices, InputCuisine, InputOccasion, InputIngredient, InputSearch, $ionicLoading) {
+.controller('findRecipeController', function($scope, $state, findRecipeServices, InputCuisine, InputOccasion, InputIngredient, InputSearch, $ionicLoading, ionicToast) {
  	// $scope.userCuisine=[];
  	$scope.userCuisine = InputCuisine;
  	$scope.userOccasion = InputOccasion;
  	$scope.ingredient = InputIngredient;
  	$scope.userSearch = InputSearch;
+
+ 	$scope.showToastBottom = function(){
+      ionicToast.show('Please select at least one cuisine.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastEmptyOccasion = function(){
+      ionicToast.show('Please select occasion.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastEmptyIngredient = function(){
+      ionicToast.show('Please choose at least one ingredient.', 'bottom',false, 2000);
+    };
+
+ 	$scope.goToOccasion = function goToOccasion() {
+ 		if($scope.userCuisine.length==0){
+ 			$scope.showToastBottom();
+ 		}else {
+ 			$state.go('occasion');
+ 		}
+ 	};
+
+ 	$scope.goToIngredient = function goToIngredient() {
+ 		if($scope.userOccasion.length==0){
+ 			$scope.showToastEmptyOccasion();
+ 		}else {
+ 			$state.go('ingredient');
+ 		}
+ 	};
+
+ 	$scope.goTofoundRecipe = function goTofoundRecipe() {
+ 		if($scope.ingredient.name.length==0){
+ 			$scope.showToastEmptyIngredient();
+ 		}else {
+ 			$state.go('foundRecipe');
+ 		}
+ 	};
 
 	$scope.toggleSelection = function toggleSelection(cuisine) {
 	    $idx = $scope.userCuisine.indexOf(cuisine);
@@ -299,4 +425,45 @@ angular.module('starter.controllers', [])
         });
     };
     $scope.findRecipe(InputSearch);
+})
+
+.controller('feedbackController', function($scope, feedbackServices, $ionicLoading, ionicToast) {
+	$scope.feedback= [];
+
+	$scope.showToastFeedback = function(){
+      ionicToast.show('Your feedback has been send.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastFeedbackName = function(){
+      ionicToast.show('Please enter your name.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastFeedbackEmail = function(){
+      ionicToast.show('Please enter your email.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastFeedbackMessage = function(){
+      ionicToast.show('Please enter your message.', 'bottom',false, 2000);
+    };
+
+	$scope.sendFeedback = function sendFeedback(){
+		if($scope.feedback.name=="" || $scope.feedback.name==null){
+			$scope.showToastFeedbackName();
+		}else if($scope.feedback.email=="" || $scope.feedback.email==null){
+			$scope.showToastFeedbackEmail();
+		}else if($scope.feedback.message=="" || $scope.feedback.message==null){
+			$scope.showToastFeedbackMessage();
+		}else{
+			$ionicLoading.show();
+	       	console.log($scope.feedback.name);
+	        feedbackServices.sendFeedback({
+	        	name: $scope.feedback.name,
+	        	visitorEmail: $scope.feedback.email,
+	        	message: $scope.feedback.message
+	        }).success(function(data){
+	            $ionicLoading.hide();
+	            $scope.showToastFeedback();
+	        });
+		}
+    };
 });

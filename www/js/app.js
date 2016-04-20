@@ -92,7 +92,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   $stateProvider.state('contactUs', {
     url: '/contactUs',
     templateUrl: 'layouts/contactUs.html',
-    // controller: 'recipeController'
+    controller: 'feedbackController'
   });
 
 

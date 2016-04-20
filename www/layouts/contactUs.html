@@ -11,15 +11,15 @@
 
       <div class="listContact">
         <label class="item item-input">
-          <input type="text" placeholder="Subject">
+          <input ng-model="feedback.name" type="text" placeholder="Name">
         </label>
         <label class="item item-input">
-          <input type="text" placeholder="Email">
+          <input ng-model="feedback.email" type="text" placeholder="Email">
         </label>
         <label class="item item-input">
-          <textarea placeholder="Messages"></textarea>
+          <textarea ng-model="feedback.message" class="contact-message" placeholder="Messages"></textarea>
         </label>
-        <br><center><button class="button button-outline button-assertive">Submit</button></center>
+        <br><center><a class="button button-outline button-assertive" ng-click="sendFeedback()">Submit</a></center>
       </div>
       
       </ion-content>
