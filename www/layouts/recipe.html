@@ -31,7 +31,8 @@
           <center>
             <rating ng-model="recipeDetail.rating" max="rating.max" readonly="readOnly"></rating>
             <strong>{{recipeDetail.rating}}</strong>
-            <div>
+            
+            <br><div>
               <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Add to Favorites</a>
               <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Remove from Favorites</a>
               <a class="button icon-center button-outline button-assertive" ng-click="giveRating(recipeDetail.id, recipeDetail.rating)">Rate This</a>
