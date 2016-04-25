@@ -1,30 +1,30 @@
 <ion-view>
   <ion-pane>
     <ion-header-bar align-title="center" class="bar bar-header">
-       <center><img class="header" src="img/recipeHeader.png"></center>
+       <center><img class="header" src="img/recipeHeaderBm.png"></center>
     </ion-header-bar>
 
     <ion-content class="scroll padding recipeList" ng-repeat="recipeDetail in recipeDetail">
 
     <div>
-    <center><h3 class="recipeName" >{{recipeDetail.recipe}}</h3></center>
+    <center><h3 class="recipeName" >{{recipeDetail.resipi}}</h3></center>
       <center><img ng-src="{{recipeDetail.photo}}" style="width: 100%; height: 200px"></center>
       </div>
       
       <p>
           <br>
-          <img class="ingredientText" src="img/ingredient.png">
+          <img class="ingredientText" src="img/ingredientBm.png">
           <font size="2" color="black" >
             <span class="spanLeft" ng-repeat="recipeIngredient in recipeIngredients">
-               <i class="ion-ios-checkmark"></i> {{recipeIngredient.ingredient}}<br>
+               <i class="ion-ios-checkmark"></i> {{recipeIngredient.ramuan}}<br>
             </span>
           </font>
 
-          <br><img class="ingredientText" src="img/time.png"> <h4><center>{{recipeDetail.time}} Minutes </center></h4>
+          <br><img class="ingredientText" src="img/timeBm.png"><h4><center>{{recipeDetail.time}} Minit</center></h4>
           <br>
-          <img class="ingredientText" src="img/instruction.png">
+          <img class="ingredientText" src="img/instructionBm.png">
           <font size="2" color="black" >
-          <div  class="spanLeft" ng-bind-html='recipeDetail.instruction'></div></font>
+          <div  class="spanLeft" ng-bind-html='recipeDetail.arahan'></div></font>
           <br>
           <!-- <font size="2" color="gray" ><strong>RATING: </strong>{{recipeDetail.rating}}</font> -->
           <img class="ingredientText" src="img/rating.png">
@@ -33,8 +33,8 @@
             <strong>{{recipeDetail.rating}}</strong>
             
             <br><div>
-              <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Add to Favorites</a>
-              <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Remove from Favorites</a>
+              <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Tambah ke Kegemaran</a>
+              <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Buang dari Kegemaran</a>
               <a class="button icon-center button-outline button-assertive" ng-click="giveRating(recipeDetail.id, recipeDetail.rating)">Rate This</a>
             </div>
           </center>
@@ -55,13 +55,13 @@
     </ion-content>
 
     <div class="tabs tabs-icon-top tabs-assertive" >
-      <a class="tab-item" href="#/menu" style="color:#ffffff;">
-      <i class="icon ion-home" ></i>Home</a>
+      <a class="tab-item" href="#/bm" style="color:#ffffff;">
+      <i class="icon ion-home" ></i>Laman Utama</a>
 
-      <a class="tab-item"  href="#/bestRecipe" style="color:#ffffff;">
-      <i class="icon ion-thumbsup"></i>Top Recipes</a>
+      <a class="tab-item"  href="#/bm-bestRecipe" style="color:#ffffff;">
+      <i class="icon ion-thumbsup"></i>Resipi Terbaik</a>
 
-      <a class="tab-item" style="color:#ffffff;" ui-sref="favRecipe" ui-sref-opts="{reload: true, inherit: false}"><i class="icon ion-heart"></i>Favorites</a>
+      <a class="tab-item" style="color:#ffffff;" ui-sref="bm-favRecipe" ui-sref-opts="{reload: true, inherit: false}"><i class="icon ion-heart"></i>Kegemaran</a>
     </div>
   </ion-pane>
 </ion-view>
@@ -79,8 +79,8 @@
           <div class="rating-star">
             <rating ng-model="rating.rate" max="rating.max"></rating>
           </div>
-          <a class="button icon-center button-outline button-assertive" ng-click="closeRatingModal()">Cancel</a>
-          <a class="button icon-center button-outline button-assertive" ng-click="saveRating()">Save</a>
+          <a class="button icon-center button-outline button-assertive" ng-click="closeRatingModal()">Batal</a>
+          <a class="button icon-center button-outline button-assertive" ng-click="saveRating()">Simpan</a>
         </center>
       </ion-content>
     </ion-modal-view>
@@ -92,18 +92,18 @@
     <ion-modal-view class="username-modal">
       <ion-header-bar align-title="center">
         <div class="bar bar-header bar-assertive">
-          <h1 class="title modal-title">Review</h1>
+          <h1 class="title modal-title">Komen</h1>
         </div>
       </ion-header-bar>
       <ion-content class="modal-header" scroll="false" ng-repeat="recipeDetail in recipeDetail">
         <center>
           <div class="list list-inset">
             <label class="item item-input">
-              <input type="text" ng-model="review.comment" placeholder="Enter your review">
+              <input type="text" ng-model="review.comment" placeholder="Masukkan komen anda">
             </label>
           </div>
-          <a class="button icon-center button-outline button-assertive" ng-click="closeReviewModal()">Cancel</a>
-          <a class="button icon-center button-outline button-assertive" ng-click="saveReview(recipeDetail.id)">Save</a>
+          <a class="button icon-center button-outline button-assertive" ng-click="closeReviewModal()">Batal</a>
+          <a class="button icon-center button-outline button-assertive" ng-click="saveReview(recipeDetail.id)">Simpan</a>
         </center>
       </ion-content>
     </ion-modal-view>

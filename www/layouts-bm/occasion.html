@@ -1,0 +1,25 @@
+<ion-view>
+  <ion-pane>
+     <ion-header-bar align-title="center" class="bar bar-header">
+       <center><img class="header" src="img/occasionHeader.png"></center>
+    </ion-header-bar>
+
+    <ion-content class="scroll recipeList">
+      <div class="content" ng-controller="OccasionController">
+        <div class="col">
+          <ion-list>
+            <ion-radio name="oc" class="radio-assertive" ng-repeat="occasion in occasions" ng-click="toggleOccasion(occasion.majlis)">{{ occasion.majlis }}</ion-radio>
+          </ion-list>
+          <p class="warn"> *Anda hanya boleh memilih satu majis sahaja.</p>
+        </div>
+      </div>
+    </ion-content>
+
+    <div class="bar bar-footer bar-assertive">
+      <a class="btnFooter1 allignLeft" ng-click="myGoBack()" ng-controller="MainCtrl"><i class="icon ion-arrow-left-a"></i> </a>
+      </a>
+      <a class="btnFooter2 allignRight" ng-click="goToIngredient()" ><i class="icon ion-arrow-right-a"></i> </a>
+      </a>
+    </div>
+  </ion-pane>
+</ion-view>

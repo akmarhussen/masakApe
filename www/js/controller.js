@@ -443,7 +443,129 @@ angular.module('starter.controllers', [])
     $scope.findRecipe(InputSearch);
 })
 
+.controller('findRecipeControllerBm', function($scope, $state, findRecipeServices, InputCuisine, InputOccasion, InputIngredient, InputSearch, $ionicLoading, ionicToast) {
+ 	// $scope.userCuisine=[];
+ 	$scope.userCuisine = InputCuisine;
+ 	$scope.userOccasion = InputOccasion;
+ 	$scope.ingredient = InputIngredient;
+ 	$scope.userSearch = InputSearch;
+
+ 	$scope.showToastBottom = function(){
+      ionicToast.show('Please select at least one cuisine.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastEmptyOccasion = function(){
+      ionicToast.show('Please select occasion.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastEmptyIngredient = function(){
+      ionicToast.show('Please choose at least one ingredient.', 'bottom',false, 2000);
+    };
+
+ 	$scope.goToOccasion = function goToOccasion() {
+ 		if($scope.userCuisine.length==0){
+ 			$scope.showToastBottom();
+ 		}else {
+ 			$state.go('bm-occasion');
+ 		}
+ 	};
+
+ 	$scope.goToIngredient = function goToIngredient() {
+ 		if($scope.userOccasion.length==0){
+ 			$scope.showToastEmptyOccasion();
+ 		}else {
+ 			$state.go('bm-ingredient');
+ 		}
+ 	};
+
+ 	$scope.goTofoundRecipe = function goTofoundRecipe() {
+ 		if($scope.ingredient.name.length==0){
+ 			$scope.showToastEmptyIngredient();
+ 		}else {
+ 			$state.go('bm-foundRecipe');
+ 		}
+ 	};
+
+	$scope.toggleSelection = function toggleSelection(cuisine) {
+	    $idx = $scope.userCuisine.indexOf(cuisine);
+
+	    // is currently selected
+	    if ($idx > -1) {
+	      $scope.userCuisine.splice($idx, 1);
+	    }
+
+	    // is newly selected
+	    else {
+	      $scope.userCuisine.push(cuisine);
+	    }
+	    console.log($scope.userCuisine);
+	};
+	$scope.toggleOccasion = function toggleOccasion(occasion) {
+	    $scope.userOccasion.pop();
+	    $scope.userOccasion.push(occasion);
+	};
+    $scope.findRecipe = function findRecipe(userSearch){
+    	if(userSearch=="not"){
+    		$scope.userSearch=false;
+    	}else{
+    		$scope.userSearch=true;
+    	}
+    	$ionicLoading.show();
+        findRecipeServices.findRecipe({
+            cuisine: $scope.userCuisine,
+            occasion: $scope.userOccasion,
+            ingredient: $scope.ingredient.name,
+            search: userSearch
+        }).success(function(data){
+            $scope.foundRecipe = data;
+            $ionicLoading.hide();
+        });
+    };
+    $scope.findRecipe(InputSearch);
+})
+
 .controller('feedbackController', function($scope, feedbackServices, $ionicLoading, ionicToast) {
+	$scope.feedback= [];
+
+	$scope.showToastFeedback = function(){
+      ionicToast.show('Your feedback has been send.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastFeedbackName = function(){
+      ionicToast.show('Please enter your name.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastFeedbackEmail = function(){
+      ionicToast.show('Please enter your email.', 'bottom',false, 2000);
+    };
+
+    $scope.showToastFeedbackMessage = function(){
+      ionicToast.show('Please enter your message.', 'bottom',false, 2000);
+    };
+
+	$scope.sendFeedback = function sendFeedback(){
+		if($scope.feedback.name=="" || $scope.feedback.name==null){
+			$scope.showToastFeedbackName();
+		}else if($scope.feedback.email=="" || $scope.feedback.email==null){
+			$scope.showToastFeedbackEmail();
+		}else if($scope.feedback.message=="" || $scope.feedback.message==null){
+			$scope.showToastFeedbackMessage();
+		}else{
+			$ionicLoading.show();
+	       	console.log($scope.feedback.name);
+	        feedbackServices.sendFeedback({
+	        	name: $scope.feedback.name,
+	        	visitorEmail: $scope.feedback.email,
+	        	message: $scope.feedback.message
+	        }).success(function(data){
+	            $ionicLoading.hide();
+	            $scope.showToastFeedback();
+	        });
+		}
+    };
+})
+
+.controller('feedbackControllerBm', function($scope, feedbackServices, $ionicLoading, ionicToast) {
 	$scope.feedback= [];
 
 	$scope.showToastFeedback = function(){

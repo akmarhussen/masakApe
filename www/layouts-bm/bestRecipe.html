@@ -1,0 +1,72 @@
+<ion-view>
+  <ion-pane>
+     <ion-header-bar align-title="center" class="bar bar-header "> 
+     <!-- <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
+     <center><img class="headLogo" src="img/logotulisan.png"></center> -->
+     <center><img class="header" src="img/bestRecipeBm.png"></center>
+     
+    </ion-header-bar>
+
+    <ion-content class="scroll recipeList">
+      <div>
+        <div class="top-recipe-option" align="center">
+            <span>Top:</span>&nbsp;
+            <select ng-model="mySelect" ng-change="showSelectValue(mySelect)">
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+            </select>&nbsp;
+            <a class="advanced" ng-click="openModal()">Carian Terperinci</a>&nbsp;
+<!--               <a class="button button-assertive" ng-click="getBestRecipe()"><i class="icon ion-search"></i></a> -->
+        </div>
+      </div>
+      <ion-list>
+        <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in recipes" type="item-text-wrap" href="#/bm-recipe/{{recipe.id}}">
+          <img ng-src="{{recipe.photo}}">
+          <i class="icon ion-ios-arrow-right"></i>
+          <h2>{{recipe.resipi}}
+              <br> 
+              <font size="2" color="gray" >Rating : {{recipe.rating}}</font>
+          </h2>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    
+    
+      <div class="tabs tabs-icon-top tabs-assertive" >
+      <a class="tab-item" href="#/bm" style="color:#ffffff;">
+      <i class="icon ion-home" ></i>Laman Utama</a>
+
+      <a class="tab-item"  href="#/bm-bestRecipe" style="color:#ffffff;">
+      <i class="icon ion-thumbsup"></i>Resipi Terbaik</a>
+
+      <a class="tab-item" style="color:#ffffff;" ui-sref="bm-favRecipe" ui-sref-opts="{reload: true, inherit: false}"><i class="icon ion-heart"></i>Kegemaran</a>
+    </div>
+  </ion-pane>
+</ion-view>
+
+<script id="my-modal.html" type="text/ng-template">
+  <div class="adic-modal">
+    <ion-modal-view class="adic-popup">
+      <ion-header-bar align-title="center">
+        <div class="bar bar-header bar-assertive">
+          <h1 class="title modal-title">Carian Terperinci</h1>
+        </div>
+      </ion-header-bar>
+      <ion-content class="modal-header">
+        <h4>Masakan:</h4>
+        <div ng-controller="CuisineController">
+          <ion-checkbox class="checkbox-assertive checkbox-modal" value="{{ cuisine.masakan }}" ng-repeat="cuisine in cuisines" ng-checked="userCuisine.indexOf(cuisine.masakan)>-1" ng-click="toggleCuisine(cuisine.masakan)">{{ cuisine.masakan }}</ion-checkbox>
+        </div>
+        <h4>Majlis:</h4>
+        <div ng-controller="OccasionController">
+          <ion-checkbox class="checkbox-assertive checkbox-modal" value="{{ occasion.majlis }}" ng-repeat="occasion in occasions" ng-checked="useroccasion.indexOf(occasion.majlis)>-1" ng-click="toggleOccasion(occasion.majlis)">{{ occasion.majlis }}</ion-checkbox>
+        </div>
+        <center>
+          <a class="button icon-center button-outline button-assertive"ng-click="closeModal()">Tutup</a>
+        </center>
+      </ion-content>
+    </ion-modal-view>
+  </div>
+</script>

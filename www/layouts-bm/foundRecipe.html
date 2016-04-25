@@ -1,0 +1,35 @@
+<ion-view>
+  <ion-pane>
+    <ion-header-bar align-title="center" class="bar bar-header">
+    <center><img class="header" src="img/foundRecipeHeader.png"></center>
+    </ion-header-bar>
+    
+    <ion-content class="scroll recipeList">
+    <div class="searchIngBtn">
+      <center>
+        <a class="button button-outline button-assertive" ng-if="userSearch==false" ng-click="findRecipe('exact')">Carian Bahan Tepat</a>
+        <a class="button button-outline button-assertive" ng-if="userSearch" ng-click="findRecipe('not')">Carian Bahan Separuh</a>
+      </center>
+    </div>
+      <ion-list>
+        <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in foundRecipe" type="item-text-wrap" href="#/recipe/{{recipe.id}}">
+          <img ng-src="{{recipe.photo}}">
+          <i class="icon ion-ios-arrow-right"></i>
+          <h2>{{recipe.resipi}}
+              <br> 
+              <font size="2" color="gray" >Rating : {{recipe.rating}}</font>
+          </h2>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    <div class="tabs tabs-icon-top tabs-assertive" >
+      <a class="tab-item" href="#/bm" style="color:#ffffff;">
+      <i class="icon ion-home" ></i>Laman Utama</a>
+
+      <a class="tab-item"  href="#/bm-bestRecipe" style="color:#ffffff;">
+      <i class="icon ion-thumbsup"></i>Resipi Terbaik</a>
+
+      <a class="tab-item" style="color:#ffffff;" ui-sref="bm-favRecipe"><i class="icon ion-heart"></i>Kegemaran</a>
+    </div>
+  </ion-pane>
+</ion-view>
