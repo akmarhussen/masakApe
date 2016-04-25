@@ -1,0 +1,39 @@
+<ion-view>
+  <ion-pane>
+     <ion-header-bar align-title="center" class="bar bar-header "> 
+     <!-- <a class="button icon-left ion-chevron-left button-clear button-royal footer-btn" ng-click="myGoBack()" style="color:#ffffff;"  ng-controller="MainCtrl"></a>
+     <center><img class="headLogo" src="img/logotulisan.png"></center> -->
+     <center><img class="header" src="img/contactBm.png"></center>
+     
+    </ion-header-bar>
+
+    <ion-content class="scroll ">
+
+      <!-- <br><center><strong><h3> We would love to hear from you. </h3></strong></center>
+       <center><strong><h4> Please send us an email if you have any inquiry, feedback or comment. </h4></strong></center> -->
+      <div class="listContact">
+        <label class="item item-input">
+          <input ng-model="feedback.name" type="text" placeholder="Nama">
+        </label>
+        <label class="item item-input">
+          <input ng-model="feedback.email" type="email" placeholder="Email">
+        </label>
+        <label class="item item-input">
+          <textarea ng-model="feedback.message" class="contact-message" placeholder="Mesej"></textarea>
+        </label>
+        <br><center><a class="button button-outline button-assertive" ng-click="sendFeedback()">Hantar</a></center>
+      </div>
+      
+      </ion-content>
+
+      <div class="tabs tabs-icon-top tabs-assertive" >
+      <a class="tab-item" href="#/bm" style="color:#ffffff;">
+      <i class="icon ion-home" ></i>Laman Utama</a>
+
+      <a class="tab-item"  href="#/bm-bestRecipe" style="color:#ffffff;">
+      <i class="icon ion-thumbsup"></i>Resipi Terbaik</a>
+
+      <a class="tab-item" style="color:#ffffff;" ui-sref="bm-favRecipe" ui-sref-opts="{reload: true, inherit: false}"><i class="icon ion-heart"></i>Kegemaran</a>
+      </div>
+  </ion-pane>
+</ion-view>

@@ -96,5 +96,72 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   });
 
 
+  // BM Page
+  $stateProvider.state('bm-menu', {
+    url: '/bm',
+    templateUrl: 'layouts-bm/menu.html',
+    controller: 'MenuController'
+  });
+
+  $stateProvider.state('bm-cuisine', {
+    url: '/bm-cuisine',
+    templateUrl: 'layouts-bm/cuisine.html',
+    controller: 'findRecipeControllerBm'
+  });
+
+  $stateProvider.state('bm-occasion', {
+    url: '/bm-occasion',
+    templateUrl: 'layouts-bm/occasion.html',
+    controller: 'findRecipeControllerBm'
+  });
+
+  $stateProvider.state('bm-ingredient', {
+    url: '/bm-ingredient',
+    templateUrl: 'layouts-bm/ingredient.html',
+    controller: 'findRecipeControllerBm'
+  });
+
+  $stateProvider.state('bm-foundRecipe', {
+    url: '/bm-foundRecipe',
+    templateUrl: 'layouts-bm/foundRecipe.html',
+    controller: 'findRecipeControllerBm'
+  });
+
+  $stateProvider.state('bm-setting', {
+    url: '/bm-setting',
+    templateUrl: 'setting.html'
+  });
+
+  $stateProvider.state('bm-bestRecipe', {
+    url: '/bm-bestRecipe',
+    templateUrl: 'layouts-bm/bestRecipe.html',
+    controller: 'recipeController'
+  });
+
+  $stateProvider.state('bm-recipe', {
+    url: '/bm-recipe/:recipeId',
+    templateUrl: 'layouts-bm/recipe.html',
+    controller: 'recipeController'
+  });
+
+  $stateProvider.state('bm-favRecipe', {
+    url: '/bm-favRecipe',
+    templateUrl: 'layouts-bm/favRecipe.html',
+    controller: 'recipeController'
+  });
+
+  $stateProvider.state('bm-aboutUs', {
+    url: '/bm-aboutUs',
+    templateUrl: 'layouts-bm/aboutUs.html',
+    // controller: 'recipeController'
+  });
+
+  $stateProvider.state('bm-contactUs', {
+    url: '/bm-contactUs',
+    templateUrl: 'layouts-bm/contactUs.html',
+    controller: 'feedbackControllerBm'
+  });
+
+
   $urlRouterProvider.otherwise('/');
 })
