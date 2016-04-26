@@ -97,6 +97,13 @@ angular.module('starter.services', [])
                 }
             });
         },
+        getBestRecipeBm: function(bestRecipe) {
+            return $http.post(baseUrl+'getBestRecipeBm.php',bestRecipe,{
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
+                }
+            });
+        },
         getId: function (recipeId){
             return $http.get(baseUrl+'get.php?recipeId='+recipeId); 
         },
@@ -152,6 +159,13 @@ angular.module('starter.services', [])
                     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
                 }
             });
+        },
+        findRecipeBm: function (userCuisine){
+            return $http.post(baseUrl+'findRecipeBm.php',userCuisine,{
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
+                }
+            });
         }
     };
 })
@@ -174,6 +188,26 @@ angular.module('starter.services', [])
 .factory('InputSearch', function() {
     inputSearch = "exact";
     return inputSearch;
+})
+
+.factory('InputCuisineBm', function() {
+    inputCuisineBm = [];
+    return inputCuisineBm;
+})
+
+.factory('InputOccasionBm', function() {
+    inputOccasionBm = [];
+    return inputOccasionBm;
+})
+
+.factory('InputIngredientBm', function() {
+    inputIngredientBm = [];
+    return inputIngredientBm;
+})
+
+.factory('InputSearchBm', function() {
+    inputSearchBm = "exact";
+    return inputSearchBm;
 })
 
 .factory('InputTopRecipe', function() {

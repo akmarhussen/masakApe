@@ -21,6 +21,10 @@
           </h2>
         </ion-item>
       </ion-list>
+      <center ng-if="recipeNotFound">
+        <h3>No recipe found</h3>
+        Please try partial ingredient search.
+      </center>
     </ion-content>
     <div class="tabs tabs-icon-top tabs-assertive" >
       <a class="tab-item" href="#/menu" style="color:#ffffff;">

@@ -13,10 +13,10 @@
         on-refresh="doRefresh()">
       </ion-refresher>
       <ion-list>
-        <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in favRecipes" type="item-text-wrap" href="#/recipe/{{recipe.id}}">
+        <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in favRecipes" type="item-text-wrap" href="#/bm-recipe/{{recipe.id}}">
           <img ng-src="{{recipe.photo}}">
           <i class="icon ion-ios-arrow-right"></i>
-          <h2>{{recipe.recipe}}
+          <h2>{{recipe.resipi}}
               <br> 
               <font size="2" color="gray" >Rating : {{recipe.rating}}</font>
           </h2>
