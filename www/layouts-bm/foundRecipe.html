@@ -12,7 +12,7 @@
       </center>
     </div>
       <ion-list>
-        <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in foundRecipe" type="item-text-wrap" href="#/recipe/{{recipe.id}}">
+        <ion-item class="item-avatar item-icon-right" ng-repeat="recipe in foundRecipe" type="item-text-wrap" href="#/bm-recipe/{{recipe.id}}">
           <img ng-src="{{recipe.photo}}">
           <i class="icon ion-ios-arrow-right"></i>
           <h2>{{recipe.resipi}}
@@ -21,6 +21,13 @@
           </h2>
         </ion-item>
       </ion-list>
+      <center ng-if="recipeNotFoundBm && userSearch==false">
+        <h3>Tiada resipi dijumpai</h3>
+        Sila cuba carian bahan separuh.
+      </center>
+      <center ng-if="recipeNotFoundBm && userSearch">
+        <h3>Tiada resipi dijumpai</h3>
+      </center>
     </ion-content>
     <div class="tabs tabs-icon-top tabs-assertive" >
       <a class="tab-item" href="#/bm" style="color:#ffffff;">

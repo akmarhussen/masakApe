@@ -135,19 +135,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   $stateProvider.state('bm-bestRecipe', {
     url: '/bm-bestRecipe',
     templateUrl: 'layouts-bm/bestRecipe.html',
-    controller: 'recipeController'
+    controller: 'recipeControllerBm'
   });
 
   $stateProvider.state('bm-recipe', {
     url: '/bm-recipe/:recipeId',
     templateUrl: 'layouts-bm/recipe.html',
-    controller: 'recipeController'
+    controller: 'recipeControllerBm'
   });
 
   $stateProvider.state('bm-favRecipe', {
     url: '/bm-favRecipe',
     templateUrl: 'layouts-bm/favRecipe.html',
-    controller: 'recipeController'
+    controller: 'recipeControllerBm'
   });
 
   $stateProvider.state('bm-aboutUs', {
