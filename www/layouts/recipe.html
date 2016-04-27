@@ -10,6 +10,11 @@
     <center><h3 class="recipeName" >{{recipeDetail.recipe}}</h3></center>
       <center><img ng-src="{{recipeDetail.photo}}" style="width: 100%; height: 200px"></center>
       </div>
+      <div>
+      <a class="btnFav"style="color:#000000;" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})" >
+      <i class="icon ion-heart"></i></a>
+      </div>
+      <i
       
       <p>
           <br>
@@ -32,11 +37,7 @@
             <rating ng-model="recipeDetail.rating" max="rating.max" readonly="readOnly"></rating>
             <strong>{{recipeDetail.rating}}</strong>
             
-            <br><div>
-              <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Add to Favorites</a>
-              <a class="button icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Remove from Favorites</a>
-              <a class="button icon-center button-outline button-assertive" ng-click="giveRating(recipeDetail.id, recipeDetail.rating)">Rate This</a>
-            </div>
+            <br>
           </center>
       <br><br>
       </p>
@@ -47,10 +48,15 @@
         <strong><i class="icon ion-person"></i> {{recipeReview.username}}</strong><br>
         {{recipeReview.comment}}
       </div>
-      <center>
-        <a class="button icon-center button-outline button-assertive" ng-click="openReviewModal()">Give Review</a>
+      <center><br><br>
+      <div >
+              <a class="button btnRecipe icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Add to Favorites</a>
+              <a class="button btnRecipe icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Remove from Favorites</a><br><br>
+              <a class="button btnRecipe icon-center button-outline button-assertive" ng-click="giveRating(recipeDetail.id, recipeDetail.rating)">Rate This</a><br><br>
+            
+        <a class="button btnRecipe icon-center button-outline button-assertive" ng-click="openReviewModal()">Give Review</a>
       </center>
-
+</div>
       
     </ion-content>
 
