@@ -1,14 +1,19 @@
 angular.module('starter.controllers', [])
 
 .controller('CuisineController', function($scope, cuisineServices, $ionicLoading){
-	$scope.show = function(){
-		$ionicLoading.show();
-		cuisineServices.getAll().success(function(data){
-			$scope.cuisines = data;
-			$ionicLoading.hide();
-		});
-	};
-	$scope.show();
+	// $scope.show = function(){
+	// 	$ionicLoading.show();
+	// 	cuisineServices.getAll().success(function(data){
+	// 		$scope.cuisines = data;
+	// 		$ionicLoading.hide();
+	// 	});
+	// };
+	// $scope.show();
+	$scope.cuisines = [{"id":"5","cuisine":"Malay","masakan":"Melayu"},
+	{"id":"1","cuisine":"Western","masakan":"Barat"},
+	{"id":"2","cuisine":"Italian","masakan":"Itali"},
+	{"id":"3","cuisine":"Arabic","masakan":"Arab"},
+	{"id":"4","cuisine":"Japanese","masakan":"Jepun"}];
 })
 
 .controller('OccasionController', function($scope, occasionServices, $ionicLoading){
