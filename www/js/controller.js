@@ -12,14 +12,21 @@ angular.module('starter.controllers', [])
 })
 
 .controller('OccasionController', function($scope, occasionServices, $ionicLoading){
-	$scope.show = function(){
-		$ionicLoading.show();
-		occasionServices.getAll().success(function(data){
-			$scope.occasions = data;
-			$ionicLoading.hide();
-		});
-	};
-	$scope.show();
+	// $scope.show = function(){
+	// 	$ionicLoading.show();
+	// 	occasionServices.getAll().success(function(data){
+	// 		$scope.occasions = data;
+	// 		$ionicLoading.hide();
+	// 	});
+	// };
+	// $scope.show();
+	$scope.occasions = [{"id":"1","occasion":"Breakfast","majlis":"Sarapan pagi"},
+	{"id":"6","occasion":"Tea-Break","majlis":"Minum pagi"},
+	{"id":"2","occasion":"Lunch","majlis":"Makan tengahari"},
+	{"id":"3","occasion":"Hi-Tea","majlis":"Minum petang"},
+	{"id":"4","occasion":"Dinner","majlis":"Makan malam"},
+	{"id":"5","occasion":"Supper","majlis":"Minum malam"},
+	{"id":"7","occasion":"Party","majlis":"Jamuan"}];
 })
 
 .controller('MainCtrl', function($scope, $ionicHistory) {
