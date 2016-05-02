@@ -1,25 +1,37 @@
 angular.module('starter.controllers', [])
 
 .controller('CuisineController', function($scope, cuisineServices, $ionicLoading){
-	$scope.show = function(){
-		$ionicLoading.show();
-		cuisineServices.getAll().success(function(data){
-			$scope.cuisines = data;
-			$ionicLoading.hide();
-		});
-	};
-	$scope.show();
+	// $scope.show = function(){
+	// 	$ionicLoading.show();
+	// 	cuisineServices.getAll().success(function(data){
+	// 		$scope.cuisines = data;
+	// 		$ionicLoading.hide();
+	// 	});
+	// };
+	// $scope.show();
+	$scope.cuisines = [{"id":"5","cuisine":"Malay","masakan":"Melayu"},
+	{"id":"1","cuisine":"Western","masakan":"Barat"},
+	{"id":"2","cuisine":"Italian","masakan":"Itali"},
+	{"id":"3","cuisine":"Arabic","masakan":"Arab"},
+	{"id":"4","cuisine":"Japanese","masakan":"Jepun"}];
 })
 
 .controller('OccasionController', function($scope, occasionServices, $ionicLoading){
-	$scope.show = function(){
-		$ionicLoading.show();
-		occasionServices.getAll().success(function(data){
-			$scope.occasions = data;
-			$ionicLoading.hide();
-		});
-	};
-	$scope.show();
+	// $scope.show = function(){
+	// 	$ionicLoading.show();
+	// 	occasionServices.getAll().success(function(data){
+	// 		$scope.occasions = data;
+	// 		$ionicLoading.hide();
+	// 	});
+	// };
+	// $scope.show();
+	$scope.occasions = [{"id":"1","occasion":"Breakfast","majlis":"Sarapan pagi"},
+	{"id":"6","occasion":"Tea-Break","majlis":"Minum pagi"},
+	{"id":"2","occasion":"Lunch","majlis":"Makan tengahari"},
+	{"id":"3","occasion":"Hi-Tea","majlis":"Minum petang"},
+	{"id":"4","occasion":"Dinner","majlis":"Makan malam"},
+	{"id":"5","occasion":"Supper","majlis":"Minum malam"},
+	{"id":"7","occasion":"Party","majlis":"Jamuan"}];
 })
 
 .controller('MainCtrl', function($scope, $ionicHistory) {
@@ -70,10 +82,6 @@ angular.module('starter.controllers', [])
 	};
 	var userNameCache = CacheFactory.get('userNameCache');
 
-	$scope.showToastWelcome = function(){
-      ionicToast.show('Welcome back '+userNameCache.get('name')+'!', 'bottom',false, 2000);
-    };
-
 	$scope.saveUsername = function() {
 		userNameCache.put('name', $scope.menu.username);
 		$scope.closeModal();
@@ -81,7 +89,11 @@ angular.module('starter.controllers', [])
 	};
 
 	if(userNameCache.get('name')){
-		$scope.showToastWelcome();
+		if ($location.path() === "/"){
+			ionicToast.show('Welcome back '+userNameCache.get('name')+'!', 'bottom',false, 2000);
+		} else{
+			ionicToast.show('Selamat kembali '+userNameCache.get('name')+'!', 'bottom',false, 2000);
+		}
 	}else {
 		$timeout($scope.openModal, 0);
 	}
@@ -723,15 +735,15 @@ angular.module('starter.controllers', [])
  	$scope.userSearch = InputSearchBm;
 
  	$scope.showToastBottom = function(){
-      ionicToast.show('Please select at least one cuisine.', 'bottom',false, 2000);
+      ionicToast.show('Sila pilih sekurangnya2 satu jenis masakan.', 'bottom',false, 2000);
     };
 
     $scope.showToastEmptyOccasion = function(){
-      ionicToast.show('Please select occasion.', 'bottom',false, 2000);
+      ionicToast.show('Sila pilih majlis.', 'bottom',false, 2000);
     };
 
     $scope.showToastEmptyIngredient = function(){
-      ionicToast.show('Please choose at least one ingredient.', 'bottom',false, 2000);
+      ionicToast.show('Sila pilih sekurangnya2 satu ramuan.', 'bottom',false, 2000);
     };
 
  	$scope.goToOccasion = function goToOccasion() {
