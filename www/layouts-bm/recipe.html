@@ -44,9 +44,9 @@
         {{recipeReview.comment}}
       </div>
       <div> <br>
-            <center><a class="button btnRecipe icon-center button-outline button-assertive" ng-click="giveRating(recipeDetail.id, recipeDetail.rating)">Beri skor</a><br></center><br>
               <center><a class="button btnRecipe icon-center button-outline button-assertive" ng-if="favRecipeExists" ng-click="addToFav({{recipeDetail.id}})">Tambah ke Kegemaran</a>
               <a class="button btnRecipe icon-center button-outline button-assertive" ng-if="favRecipeExists==false" ng-click="removeFromFav({{recipeDetail.id}})">Buang dari Kegemaran</a></center><br>
+              <center><a class="button btnRecipe icon-center button-outline button-assertive" ng-click="giveRating(recipeDetail.id, recipeDetail.rating)">Beri skor</a><br></center><br>
               <center><a class="button btnRecipe icon-center button-outline button-assertive" ng-click="openReviewModal()">Beri komen</a></center>
       </div>
       

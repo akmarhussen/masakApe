@@ -65,7 +65,7 @@ angular.module('starter.controllers', [])
 	};
 
   	$ionicPlatform.registerBackButtonAction(function() {
-		if ($location.path() === "/") {
+		if ($location.path() === "/" || $location.path() === "/bm") {
 		  navigator.app.exitApp();
 		}
 		else {
