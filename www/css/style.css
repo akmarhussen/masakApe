@@ -553,3 +553,11 @@ ul.rating li i {
 .contact-message {
 	height: 100px;
 }
+
+.contact-subject {
+	padding: 5px 40px 5px 0px;
+	width: 100%;
+	position: initial;
+	border: none;
+	color: #999;
+}

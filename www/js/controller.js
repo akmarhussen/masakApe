@@ -82,10 +82,6 @@ angular.module('starter.controllers', [])
 	};
 	var userNameCache = CacheFactory.get('userNameCache');
 
-	$scope.showToastWelcome = function(){
-      ionicToast.show('Welcome back '+userNameCache.get('name')+'!', 'bottom',false, 2000);
-    };
-
 	$scope.saveUsername = function() {
 		userNameCache.put('name', $scope.menu.username);
 		$scope.closeModal();
@@ -93,7 +89,11 @@ angular.module('starter.controllers', [])
 	};
 
 	if(userNameCache.get('name')){
-		$scope.showToastWelcome();
+		if ($location.path() === "/"){
+			ionicToast.show('Welcome back '+userNameCache.get('name')+'!', 'bottom',false, 2000);
+		} else{
+			ionicToast.show('Selamat kembali '+userNameCache.get('name')+'!', 'bottom',false, 2000);
+		}
 	}else {
 		$timeout($scope.openModal, 0);
 	}
@@ -735,15 +735,15 @@ angular.module('starter.controllers', [])
  	$scope.userSearch = InputSearchBm;
 
  	$scope.showToastBottom = function(){
-      ionicToast.show('Please select at least one cuisine.', 'bottom',false, 2000);
+      ionicToast.show('Sila pilih sekurangnya2 satu jenis masakan.', 'bottom',false, 2000);
     };
 
     $scope.showToastEmptyOccasion = function(){
-      ionicToast.show('Please select occasion.', 'bottom',false, 2000);
+      ionicToast.show('Sila pilih majlis.', 'bottom',false, 2000);
     };
 
     $scope.showToastEmptyIngredient = function(){
-      ionicToast.show('Please choose at least one ingredient.', 'bottom',false, 2000);
+      ionicToast.show('Sila pilih sekurangnya2 satu ramuan.', 'bottom',false, 2000);
     };
 
  	$scope.goToOccasion = function goToOccasion() {

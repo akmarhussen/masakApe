@@ -19,6 +19,13 @@
           <input ng-model="feedback.email" type="email" placeholder="Email">
         </label>
         <label class="item item-input">
+          <select class="item-select contact-subject">
+            <option selected="true" disabled="disabled">Sila pilih satu</option>
+            <option>Pertanyaan</option>
+            <option>Cadangan</option>
+          </select>
+        </label>
+        <label class="item item-input">
           <textarea ng-model="feedback.message" class="contact-message" placeholder="Mesej"></textarea>
         </label>
         <br><center><a class="button button-outline button-assertive" ng-click="sendFeedback()">Hantar</a></center>
