@@ -65,7 +65,7 @@ angular.module('starter.controllers', [])
 	};
 
   	$ionicPlatform.registerBackButtonAction(function() {
-		if ($location.path() === "/") {
+		if ($location.path() === "/" || $location.path() === "/bm") {
 		  navigator.app.exitApp();
 		}
 		else {
@@ -860,19 +860,19 @@ angular.module('starter.controllers', [])
 	$scope.feedback= [];
 
 	$scope.showToastFeedback = function(){
-      ionicToast.show('Your feedback has been send.', 'bottom',false, 2000);
+      ionicToast.show('Maklum balas anda telah dihantar.', 'bottom',false, 2000);
     };
 
     $scope.showToastFeedbackName = function(){
-      ionicToast.show('Please enter your name.', 'bottom',false, 2000);
+      ionicToast.show('Sila masukkan nama anda.', 'bottom',false, 2000);
     };
 
     $scope.showToastFeedbackEmail = function(){
-      ionicToast.show('Please enter your email.', 'bottom',false, 2000);
+      ionicToast.show('Sila masukkan emel anda.', 'bottom',false, 2000);
     };
 
     $scope.showToastFeedbackMessage = function(){
-      ionicToast.show('Please enter your message.', 'bottom',false, 2000);
+      ionicToast.show('Sila masukkan mesej anda.', 'bottom',false, 2000);
     };
 
 	$scope.sendFeedback = function sendFeedback(){

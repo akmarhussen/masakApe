@@ -229,9 +229,9 @@
 	font-weight:500;
 	height:80px;
 	padding-top: 11px;
-	padding-left: 49px;
+	padding-left: 45px;
 	padding-bottom: 11px;
-	padding-right: 49px;
+	padding-right: 45px;
 	width: 131px;
 	text-decoration:none;
 }
@@ -282,8 +282,15 @@
 /*----------------------------------------------------About Us Page------------------------------------------------------*/
 
 .aboutUs {
-	width: 91%;
-    padding-top: 30px;
+	width: 35%;
+    padding-top: 20px;
+}
+
+.aboutUsContent {
+	width: 100%;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /*----------------------------------------------------Contact  Us Page------------------------------------------------------*/
